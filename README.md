@@ -14,11 +14,11 @@
 
 ## Links
 
-[Google BigQuery](https://console.cloud.google.com/bigquery?p=basedosdados&d=br_me_rais&t=microdados_vinculos&page=table)
-[CNAE](https://concla.ibge.gov.br/documentacao/cronologia/204-concla/classificacao/por-tema/1365-cnae-2-0.html)
-[CNAE - 620](https://concla.ibge.gov.br/busca-online-cnae.html?view=grupo&tipo=cnae&versao=5&grupo=620)
-[CNAE - 631](https://concla.ibge.gov.br/busca-online-cnae.html?view=grupo&tipo=cnae&versao=5&grupo=631)
-[Agrupando categorias BD](https://ice-panda.medium.com/how-to-get-the-first-row-from-each-group-with-the-maximum-value-of-a-particular-column-in-bigquery-92fadc830a06)
+- [Google BigQuery](https://console.cloud.google.com/bigquery?p=basedosdados&d=br_me_rais&t=microdados_vinculos&page=table)
+- [CNAE](https://concla.ibge.gov.br/documentacao/cronologia/204-concla/classificacao/por-tema/1365-cnae-2-0.html)
+- [CNAE - 620](https://concla.ibge.gov.br/busca-online-cnae.html?view=grupo&tipo=cnae&versao=5&grupo=620)
+- [CNAE - 631](https://concla.ibge.gov.br/busca-online-cnae.html?view=grupo&tipo=cnae&versao=5&grupo=631)
+- [Agrupando categorias BD](https://ice-panda.medium.com/how-to-get-the-first-row-from-each-group-with-the-maximum-value-of-a-particular-column-in-bigquery-92fadc830a06)
 
 ## Dica do irmão da Luciana (Jevuks Matheus - Pós Dr. Economia UFPB)
 
