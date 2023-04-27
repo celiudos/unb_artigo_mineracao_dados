@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    "alefragnani.Bookmarks",
+    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "dracula-theme.theme-dracula",
+    "eamodio.gitlens",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "GitHub.copilot",
+    "GitHub.copilot-labs",
+    "grogdunn.netbeans-keybindings",
+    "IBM.output-colorizer",
+    "kisstkondoros.vscode-gutter-preview",
+    "magicstack.MagicPython",
+    "ms-azuretools.vscode-docker",
+    "ms-dotnettools.vscode-dotnet-runtime",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+    "ms-toolsai.vscode-jupyter-cell-tags",
+    "mutantdino.resourcemonitor",
+    "naumovs.color-highlight",
+    "nidu.copy-json-path",
+    "Nixon.env-cmd-file-syntax",
+    "PKief.material-icon-theme",
+    "softwaredotcom.swdc-vscode",
+    "James-Yu.latex-workshop"
+  ]
+}

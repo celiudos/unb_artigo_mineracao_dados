@@ -1,0 +1,12 @@
+
+# Default
+__pycache__
+logs/*
+.env
+
+# Projeto
+
+**/output**/bronze/*
+# **/output**/silver/*
+
+artigo/out/*
