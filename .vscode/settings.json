@@ -3,4 +3,8 @@
   "editor.wordWrap": "wordWrapColumn",
   "latex-workshop.latex.outDir": "./out",
   "editor.wordWrapColumn": 100,
+  "latex-workshop.docker.enabled": true,
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.docker.image.latex": "tianon/latex",
 }
