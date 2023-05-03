@@ -1,16 +1,23 @@
 # Artigo de Minieração de Dados (Marcelo Ladeira) !!!
 
-# Instalar
+## Instalar
 
 - Utilizar o VSCode e instalar os plugins da opção "Recomendado"
 - Instalar a imagem do Dockerfile
 
-# Conhecimento
+## Conhecimento
 
 - Ideia para FBD -> Comparação com WITH e SEM WITH
 - Curiosidade: Se utilizar a query SQL com 1.000 registros, então um CSV pesa...
   -- FULL com texto: 103 KB
   -- SIMPES sem texto: 30 KB (100.000 -> 2.8 MB)
+
+## Escopo do Artigo
+
+**Questão:** Qual o impacto do período da COVID-19 nos profissionais de TI?
+- **Contexto:** Profissionais de TI no Brasil
+- **Período:** Antes COVID-19 (2018-2019) e Durante COVID-19 (2020-2021)
+- **Perfis de análise:** Homens X Mulheres; Por estados do Brasil; Média de salário 
 
 ## Links
 
