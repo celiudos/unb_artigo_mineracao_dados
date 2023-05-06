@@ -1,6 +1,26 @@
-\section{Trabalhos Relacionados}
+\section{Metodologia}
 
-Em 2022 foi realizado um estudo \cite{oliveira2022profissionais} que consistia em analisar novo segmento da Tecnologia da Informação (TI) no Nordeste brasileiro a partir das transformações e tendências trazidas pelos impactos da crise econômica desencadeada em 2015 e seu agravamento com a Pandemia da Covid-19. Este trabalho se detém, especialmente, sobre indicadores da condição laboral dos profissionais de TI na região. Para isso, utiliza-se de estudos empíricos – anteriormente realizados por nós e por terceiros – e de dados secundários. Quanto a estes últimos, priorizamos a Pesquisa Anual de Serviços (PAS) e a Pesquisa Nacional por Amostra de Domicílios Contínua (PNADC), ambas do Instituto Brasileiro de Geografia e Estatística (IBGE), e, com maior destaque, a Relação Anual de Informações Sociais (Rais). Os dados evidenciaram que, tanto no plano nacional como regional, a crise exerceu um efeito negativo sobre esse segmento, apesar do seu estoque de vínculos formais ter continuado sua trajetória de crescimento.
+Todo o estudo proposto será realizado seguindo a metodologia Cross Industry Standard Process for Data Mining - CRISP-DM \cite{chapman2000crisp}, que é um processo padrão para mineração de dados.
 
-Outro estudo de 2022 \cite{cavalcanti2022reforma}, propôs uma analise dos impactos da Reforma Trabalhista de 2017 sobre os/as docentes do ensino básico privado de Pernambuco, especialmente sobre empregos, formas de contratação e remuneração. Para tanto, realizou-se um levantamento bibliográfico sobre Reforma, neoliberalismo e pandemia e utilizaram- -se técnicas quantitativas de manipulação de dados da Relação Anual de Informações Sociais – RAIS, do Cadastro Geral de Empregados e Desempregados – Caged e do Novo Cadastro Geral de Empregados e Desempregados – Novo Caged. A análise cobriu os períodos de 2010 a 2019, para os dados da RAIS, 2014 a 2019, para os dados do Caged, e 2020 a 2021, para os dados do Novo Caged. Destacam-se a alta rotatividade no mercado de trabalho da categoria, além do avanço de prerrogativas da Reforma sobre os contratos e desligamento.
+O CRISP-DM envolve um ciclo faseado para um projeto ou pesquisa de mineração de dados, conforme apresentado na Figura \ref{fig1}:
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=80mm,scale=0.8]{assets/crispdm.jpg}
+	}
+	\caption{Phases of the CRISP-DM Process Model}
+	\label{fig1}
+\end{figure}
+
+Os passos do CRISP-DM são:
+
+\begin{enumerate}
+	\item Compreensão do negócio: nesta etapa, o contexto do problema apresentado será analisado com detalhe para uma melhor compreensão da vulnerabilidade feminina.
+	\item Compreensão dos dados: nesta etapa, os dados do RAIS serão coletados e examinados para identificar problemas de qualidade e verificar se eles são adequados para atender aos objetivos da pesquisa. Além disso, serão identificadas as variáveis que serão utilizadas na análise.
+	\item Preparação dos dados: nesta etapa, os dados da RAIS serão preparados para análise, o que pode incluir a limpeza de dados, a transformação de variáveis e a seleção de subconjuntos de dados relevantes. 
+	\item Modelagem: nesta etapa, serão aplicados modelos estatísticos ou de aprendizado de máquina para identificar padrões nos dados da RAIS, bem como relações entre variáveis.
+	\item Avaliação: nesta etapa, os resultados da modelagem serão avaliados para verificar se eles atendem aos objetivos da pesquisa, isto é, se eles fornecem informações úteis.
+	\item Implantação: nesta etapa final, os resultados serão apresentados e as hipóteses confirmadas ou refutadas.     	      	      	      	      	      
+\end{enumerate}
+
   
