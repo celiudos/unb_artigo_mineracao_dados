@@ -1,5 +1,91 @@
-\section{Trabalhos Relacionados}
+\section{Metodologia}
 
-Em 2022 foi realizado um estudo \cite{oliveira2022profissionais} que consistia em analisar novo segmento da Tecnologia da Informação (TI) no Nordeste brasileiro a partir das transformações e tendências trazidas pelos impactos da crise econômica desencadeada em 2015 e seu agravamento com a Pandemia da Covid-19. Este trabalho se deteve, especialmente, a analisar indicadores da condição laboral dos profissionais de TI na região. Para isso, utilizou-se estudos empíricos e dados secundários, provenientes da Pesquisa Anual de Serviços (PAS) e da Pesquisa Nacional por Amostra de Domicílios Contínua (PNADC), ambas do Instituto Brasileiro de Geografia e Estatística (IBGE), e, com maior destaque, a Relação Anual de Informações Sociais (RAIS). Os dados evidenciaram que, tanto no plano nacional como regional, a crise exerceu um efeito negativo sobre esse segmento, apesar do seu estoque de vínculos formais ter continuado sua trajetória de crescimento. Nesse trbalho não foi analisada a diferença salarial entre homens e mulheres na área de TI.
+Todo o estudo proposto será realizado seguindo a metodologia Cross Industry Standard Process for Data Mining - CRISP-DM \cite{chapman2000crisp}, que é um processo padrão para mineração de dados.  Cabe destacar que não é proprietário e pretende ser independente do setor e das aplicações em que é utilizado.
 
-Em 2021, foi realizado um estudo por Rodolfo Bechtlufft e Bruno Lazarotti \cite{bechtlufft2021determinantes} que analisou os determinantes do diferencial de remuneração entre as carreiras do Poder Executivo do estado de Minas Gerais. Os autores utilizaram um modelo de regressão linear cujas variáveis explicativas foram elaboradas com base em diferentes abordagens teóricas acerca da determinação dos salários: teoria do capital humano, teoria da segmentação dos mercados, teoria da discriminação e sociologia das profissões, além de considerar as especificidades do setor público 1. Os resultados sugerem que a estrutura relativa de salários no setor público constitui uma manifestação concreta das diferenças de recursos políticos disponíveis às carreiras, do prestígio social das profissões e de aspectos estruturais da desigualdade de gênero, mas, diferentemente do que é proposto neste trabalho, o estudo focou apenas nas carreiras do poder executivo do estado de MG.
+O CRISP-DM envolve um ciclo faseado para um projeto ou pesquisa de mineração de dados, conforme apresentado na Figura \ref{fig1}:
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=80mm,scale=0.8]{assets/crispdm.jpg}
+	}
+	\caption{Phases of the CRISP-DM Process Model}
+	\label{fig1}
+\end{figure}
+
+As atividades que compreendem este artigo serão realizadas conforme as seguintes etapas do CRISP-DM a seguir:
+
+\begin{enumerate}
+	\item Compreensão do negócio: o contexto do problema apresentado será analisado com detalhe para uma melhor compreensão da vulnerabilidade feminina.
+	\item Compreensão dos dados: os dados do RAIS serão coletados e examinados para identificar problemas de qualidade e verificar se eles são adequados para atender aos objetivos da pesquisa. Além disso, serão identificadas as variáveis que serão utilizadas na análise.
+	\item Preparação dos dados: os dados da RAIS serão preparados para análise, o que pode incluir a limpeza de dados, a transformação de variáveis e a seleção de subconjuntos de dados relevantes. 
+	\item Modelagem: serão aplicados modelos estatísticos ou de aprendizado de máquina para identificar padrões nos dados da RAIS, bem como relações entre variáveis.
+	\item Avaliação: os resultados da modelagem serão avaliados para verificar se eles atendem aos objetivos da pesquisa, isto é, se eles fornecem informações úteis.
+	\item Implantação: nesta etapa final, os resultados serão apresentados e as hipóteses confirmadas ou refutadas.     	      	      	      	      	      
+\end{enumerate}
+
+
+\subsection{Compreensão dos dados}
+
+Controlou-se um vetor de fatores individuais (idade e tempo de emprego) e empresariais
+(região, tamanho e atividade econômica), que podem afetar o salário. A Tabela \ref{vars} apresenta e
+descreve as variáveis explicativas desta tese.
+
+\begin{table}[htbp]
+	\caption{Dados analisados}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Variável}            & \textbf{Definição}     & \textbf{Exemplo}    \\ 
+			\hline
+			\textbf{Idade}                & Idade do trabalhador     & 20, 35              \\
+			\hline 
+			\textbf{Desligamento}         & Desligamento da empresa  & 0, -1               \\
+			\hline 
+			\textbf{Região}              & Localização da empresa & MS, DF              \\
+			\hline 
+			\textbf{Ocupação}           & Descrição do cargo     & Analista de suporte \\
+			\hline 
+			\textbf{Ano}                  & Período dos dados       & 2018, 2019          \\
+			\hline
+			\textbf{Remuneração Média} & Com base no ano          & 5000                \\
+			\hline
+		\end{tabular}
+		\label{vars}
+	\end{center}
+\end{table}
+
+Os cargos de TI, conforme a CBO, foram:
+
+\begin{table}[htbp]
+	\caption{Ocupações analisadas}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Código} & \textbf{Descrição}                                      \\ 
+			\hline
+			212205           & Engenheiro de Aplicativos em Computacao                   \\
+			212210           & Engenheiro de Equipamentos em Computacao                  \\
+			212215           & Engenheiros de Sistemas Operacionais em Computacao        \\
+			\hline 										
+			212305           & Administrador de Banco de Dados                           \\
+			212310           & Administrador de Redes                                    \\
+			212315           & Administrador de Sistemas Operacionais                    \\
+			212320           & Administrador em Segurança da Informação               \\
+			\hline 									
+			212405           & Analista de Desenvolvimento de Sistemas                   \\
+			212410           & Analista de Redes e de Comunicacao de Dados               \\
+			212415           & Analista de Sistemas de Automacao                         \\
+			212420           & Analista de Suporte Computacional                         \\
+			\hline 									
+			317105           & Programador de Internet                                   \\
+			317110           & Programador de Sistemas de Informacao                     \\
+			317115           & Programador de Maquinas - Ferramenta com Comando Numerico \\
+			317120           & Programador de Multimidia                                 \\
+			\hline 									
+			317205           & Operador de Computador (Inclusive Microcomputador)        \\
+			317210           & Tecnico de Apoio ao Usuario de Informatica (Helpdesk)     \\
+			\hline
+		\end{tabular}
+		\label{ocupacoes}
+	\end{center}
+\end{table}
