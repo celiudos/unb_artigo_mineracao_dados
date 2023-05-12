@@ -6,7 +6,8 @@ logs/*
 
 # Projeto
 
-# **/output**/bronze/*
-# **/output**/silver/*
+**/output**/bronze/*
+**/output**/silver/*
+**/output**/gold/*
 
 artigo/out/*
