@@ -11,3 +11,4 @@ logs/*
 **/output**/gold/*
 
 artigo/out/*
+.DS_Store
