@@ -8,6 +8,6 @@
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.docker.image.latex": "tianon/latex",
   "[sql]": {
-    "editor.defaultFormatter": "cweijan.vscode-mysql-client2"
+    "editor.defaultFormatter": "cweijan.vscode-mysql-client2",
   },
 }
