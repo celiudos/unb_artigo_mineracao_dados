@@ -4,7 +4,7 @@
 
 -- Exibindo quantidade por ano de cargos por gêneros
 
-SELECT ano, sexo, COUNT(*) FROM `VW_RAIS_FULL` GROUP BY ano, sexo;
+SELECT ano, sexo, COUNT(*) FROM `VW_EMPREGADO_FULL` GROUP BY ano, sexo;
 
 -- Quantidade de cargos por gênero
 
@@ -12,7 +12,7 @@ SELECT
     ocupacao,
     sexo,
     COUNT(id_ocupacao)
-FROM `VW_RAIS_FULL`
+FROM `VW_EMPREGADO_FULL`
 GROUP BY id_ocupacao, sexo
 ORDER BY ocupacao, sexo;
 
@@ -26,7 +26,7 @@ WITH remun_media AS (
             ROUND(MIN(remuneracao_media), 2) as minimo,
             ROUND(MAX(remuneracao_media), 2) as maximo,
             ROUND(STD(remuneracao_media), 2) as desvio_padrao
-        FROM `VW_RAIS_FULL`
+        FROM `VW_EMPREGADO_FULL`
         WHERE
             remuneracao_media > 0
         GROUP BY
@@ -53,8 +53,8 @@ WITH qnt_desligs AS (
             ano,
             regiao,
             sexo,
-            SUM(desligamento) as qnt_desligamento
-        FROM `VW_RAIS_FULL`
+            COUNT(desligamento) as qnt_desligamento
+        FROM `VW_EMPREGADO_FULL`
         WHERE ano < 2020
         GROUP BY
             ano,
@@ -82,8 +82,8 @@ WITH qnt_desligs AS (
             ano,
             regiao,
             sexo,
-            SUM(desligamento) as qnt_desligamento
-        FROM `VW_RAIS_FULL`
+            COUNT(desligamento) as qnt_desligamento
+        FROM `VW_EMPREGADO_FULL`
         WHERE ano >= 2020
         GROUP BY
             ano,
