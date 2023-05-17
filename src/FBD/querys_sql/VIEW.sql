@@ -3,10 +3,9 @@
 -- ============= CRIANDO VIEW =========================
 
 -- Criando view com join da Rais em todas as outras tabelas
+DROP VIEW IF EXISTS  `VW_RAIS_FULL`;
 
-DROP VIEW `RAIS_FULL`;
-
-CREATE VIEW RAIS_FULL AS 
+CREATE VIEW VW_RAIS_FULL AS
 	SELECT
 	    r.*,
 	    OCUPACAO.nome AS ocupacao,
@@ -18,4 +17,4 @@ CREATE VIEW RAIS_FULL AS
 	    INNER JOIN SEXO ON r.id_sexo = SEXO.id
 	    INNER JOIN UF ON r.id_uf = UF.id
 	    INNER JOIN REGIAO ON UF.id_regiao = REGIAO.id -- LIMIT 10;
-; 
+;

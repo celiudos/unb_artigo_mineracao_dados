@@ -1,16 +1,10 @@
 -- Active: 1684245138463@@127.0.0.1@3306@projfbd
 
--- ============= ZERANDO OS DADOS =========================
+-- ============= CRIANDO DB =========================
 
--- TRUNCATE TABLE OCUPACAO;
-
--- TRUNCATE TABLE SEXO;
-
--- TRUNCATE TABLE REGIAO;
-
--- TRUNCATE TABLE UF;
-
-TRUNCATE TABLE RAIS;
+DROP DATABASE IF EXISTS projfbd;
+CREATE DATABASE projfbd DEFAULT CHARACTER SET 'utf8';
+USE projfbd;
 
 -- ============= CRIANDO AS TABELAS =========================
 

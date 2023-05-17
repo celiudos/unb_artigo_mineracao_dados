@@ -2,20 +2,19 @@
 
 -- ============= CRIANDO PROCEDURE =========================
 
--- Criando view com join da Rais em todas as outras tabelas
+DELIMITER $$
 
-DROP VIEW `RAIS_FULL`;
+CREATE PROCEDURE IF NOT EXISTS PROC_SELECIONAR_RAIS_POR_ANO
+(IN ANO INT) BEGIN
+	SELECT * FROM RAIS as r WHERE ANO = r.ano;
+END;
 
-CREATE VIEW RAIS_FULL AS
-	SELECT
-	    r.*,
-	    OCUPACAO.nome AS ocupacao,
-	    SEXO.nome AS sexo,
-	    UF.nome AS uf,
-	    REGIAO.nome AS regiao
-	FROM RAIS as r
-	    INNER JOIN OCUPACAO ON r.id_ocupacao = OCUPACAO.id
-	    INNER JOIN SEXO ON r.id_sexo = SEXO.id
-	    INNER JOIN UF ON r.id_uf = UF.id
-	    INNER JOIN REGIAO ON UF.id_regiao = REGIAO.id -- LIMIT 10;
-;
+$$
+
+DELIMITER;
+
+CALL PROC_SELECIONAR_RAIS_POR_ANO (2018);
+
+-- GERAR VALORES DO describe DO PANDAS
+
+DELIMITER $$
