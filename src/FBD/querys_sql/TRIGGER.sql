@@ -3,43 +3,29 @@
 -- ============= CRIANDO TRIGGER =========================
 
 DELIMITER $$
-CREATE TRIGGER
-    TRIGGER_CHECK_INSERT_RAIS BEFORE INSERT ON RAIS
-    FOR EACH ROW
-    BEGIN
-      IF NEW.idade < 14 THEN
-        SET NEW.idade = 14;
-      END IF;
-    END;
+
+CREATE TRIGGER IF NOT EXISTS TRIGGER_CHECK_INSERT_EMPREGADO
+BEFORE INSERT ON EMPREGADO FOR EACH ROW BEGIN
+	IF NEW.idade < 14 THEN SET NEW.idade = 14;
+	END IF;
+END;
+
 $$
+
 DELIMITER;
 
 -- ======== TESTANDO
 
--- INSERT INTO
---     RAIS (
---         id_ocupacao,
---         id_sexo,
---         id_uf,
---         ano,
---         remuneracao_media,
---         desligamento,
---         idade
---         -- ocupacao,
---         -- sexo,
---         -- uf,
---         -- regiao
---     )
--- VALUES (
---         212205,
---         1,
---         11,
---         2020,
---         111.11,
---         0,
---         11
---         -- 'Engenheiro de Aplicativos em Computacao',
---         -- 'Masculino',
---         -- 'MS',
---         -- 'Centro-Oeste'
---     );
+INSERT INTO
+    EMPREGADO (
+        id_ocupacao,
+        id_sexo,
+        id_uf,
+        ano,
+        remuneracao_media,
+        desligamento,
+        idade
+    )
+VALUES (212205, 1, 11, 2020, 111.11, 0, 11);
+
+SELECT * FROM EMPREGADO WHERE id_ocupacao  = 212205 AND ano = 2020 AND id_sexo = 1 AND remuneracao_media < 112;

@@ -2,19 +2,21 @@
 
 -- ============= CRIANDO VIEW =========================
 
--- Criando view com join da Rais em todas as outras tabelas
-DROP VIEW IF EXISTS  `VW_RAIS_FULL`;
+USE projfbd;
 
-CREATE VIEW VW_RAIS_FULL AS
+-- Criando view com join da Rais em todas as outras tabelas
+DROP VIEW IF EXISTS  `VW_EMPREGADO_FULL`;
+
+CREATE VIEW VW_EMPREGADO_FULL AS
 	SELECT
-	    r.*,
+	    e.*,
 	    OCUPACAO.nome AS ocupacao,
 	    SEXO.nome AS sexo,
 	    UF.nome AS uf,
 	    REGIAO.nome AS regiao
-	FROM RAIS as r
-	    INNER JOIN OCUPACAO ON r.id_ocupacao = OCUPACAO.id
-	    INNER JOIN SEXO ON r.id_sexo = SEXO.id
-	    INNER JOIN UF ON r.id_uf = UF.id
+	FROM EMPREGADO as e
+	    INNER JOIN OCUPACAO ON e.id_ocupacao = OCUPACAO.id
+	    INNER JOIN SEXO ON e.id_sexo = SEXO.id
+	    INNER JOIN UF ON e.id_uf = UF.id
 	    INNER JOIN REGIAO ON UF.id_regiao = REGIAO.id -- LIMIT 10;
 ;
