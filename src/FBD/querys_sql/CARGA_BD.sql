@@ -1,4 +1,5 @@
 -- Active: 1684245138463@@127.0.0.1@3306@projfbd
+
 USE projfbd;
 
 -- ============= INSERINDO OS DADOS (CARGA) =========================
@@ -72,26 +73,16 @@ INSERT INTO
     UF (id, id_regiao, nome)
 VALUES (25, 3, 'SP'), (18, 3, 'RJ'), (10, 3, 'MG'), (22, 4, 'RS'), (17, 4, 'PR'), (23, 4, 'SC'), (6, 0, 'DF'), (20, 2, 'RO'), (15, 1, 'PE'), (4, 1, 'BA'), (5, 1, 'CE'), (7, 3, 'ES'), (8, 0, 'GO'), (12, 0, 'MT'), (13, 2, 'PA'), (14, 1, 'PB'), (2, 2, 'AM'), (11, 0, 'MS'), (19, 1, 'RN'), (9, 1, 'MA'), (16, 1, 'PI'), (1, 1, 'AL'), (24, 1, 'SE'), (26, 2, 'TO'), (0, 2, 'AC'), (3, 2, 'AP'), (21, 2, 'RR');
 
--- ==== TABELA: RAIS
+-- ==== TABELA: RAIS (Apenas um exemplo. Pois a carga será feita atravé de um script Python)
 
 -- INSERT INTO
-
 --     RAIS (
-
 --         id_ocupacao,
-
 --         id_sexo,
-
 --         id_uf,
-
 --         ano,
-
 --         remuneracao_media,
-
 --         desligamento,
-
 --         idade
-
 --     )
-
 -- VALUES (212415, 1, 25, 2020, 539.64, 0, 18);

@@ -18,13 +18,7 @@ DELIMITER;
 
 INSERT INTO
     EMPREGADO (
-        id_ocupacao,
-        id_sexo,
-        id_uf,
-        ano,
-        remuneracao_media,
-        desligamento,
-        idade
+        id_ocupacao, id_sexo, id_uf, ano, remuneracao_media, desligamento, idade
     )
 VALUES (212205, 1, 11, 2020, 111.11, 0, 11);
 

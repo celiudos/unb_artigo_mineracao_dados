@@ -10,5 +10,8 @@
   "[sql]": {
     "editor.defaultFormatter": "cweijan.vscode-mysql-client2",
     "editor.formatOnSave": false
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
