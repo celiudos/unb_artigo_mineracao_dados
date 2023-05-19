@@ -15201,7 +15201,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># MERMAID: para visualização de Diagramas no Markdown</span>
-<span class="k">def</span> <span class="nf">mm</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">nome_img</span> <span class="o">=</span> <span class="s2">&quot;img_mm&quot;</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">mm</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
   <span class="n">graph</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
   <span class="n">graphbytes</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
   <span class="n">base64_bytes</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">graphbytes</span><span class="p">)</span>
@@ -15209,15 +15209,15 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   <span class="n">url_img</span> <span class="o">=</span> <span class="s2">&quot;https://mermaid.ink/img/&quot;</span> <span class="o">+</span> <span class="n">base64_string</span>
   <span class="n">img_file</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url_img</span><span class="p">)</span>
   <span class="n">display</span><span class="p">(</span><span class="n">img_file</span><span class="p">)</span>
-  <span class="c1"># print(url_img)</span>
-  
-  <span class="c1"># filename = f&#39;./resultado_final/{nome_img}.png&#39;</span>
+  <span class="k">return</span> <span class="n">url_img</span>
 
 <span class="c1"># Ignorando Warnings do Python</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
-<span class="c1"># Conecção com o Banco de Dados</span>
-<span class="n">cnx</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="s1">&#39;projfbd&#39;</span><span class="p">)</span>
+<span class="c1"># Conexão com o Banco de Dados</span>
+<span class="k">def</span> <span class="nf">get_cnx</span><span class="p">():</span>
+  <span class="k">return</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="s1">&#39;projfbd&#39;</span><span class="p">)</span>
+<span class="n">cnx</span> <span class="o">=</span> <span class="n">get_cnx</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15268,7 +15268,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mm</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">img_mm_1</span> <span class="o">=</span> <span class="n">mm</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">erDiagram</span>
 <span class="s2">    EMPREGADO {</span>
 <span class="s2">        int id PK</span>
@@ -15285,7 +15285,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="s2">        string regiao &quot;Ex: Nordeste&quot;</span>
 <span class="s2">    }</span>
 <span class="s2">    EMPREGADO ||--|{ LOCAL_TRABALHO : trabalha</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;modelo_conceitual&quot;</span><span class="p">)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15381,7 +15381,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mm</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">img_mm_2</span> <span class="o">=</span> <span class="n">mm</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">erDiagram    </span>
 <span class="s2">    EMPREGADO ||--|{ OCUPACAO : possui</span>
 <span class="s2">    EMPREGADO ||--|{ SEXO : tem</span>
@@ -15414,7 +15414,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="s2">        int id PK</span>
 <span class="s2">        string nome</span>
 <span class="s2">    }</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;modelo_normalizado&quot;</span><span class="p">)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">img_mm_2</span>
 </pre></div>
 
      </div>
@@ -15436,6 +15437,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
 <img src="https://mermaid.ink/img/IGVyRGlhZ3JhbSAgICAgICAgIEVNUFJFR0FETyB8fC0tfHsgT0NVUEFDQU8gOiBwb3NzdWkgICAgIEVNUFJFR0FETyB8fC0tfHsgU0VYTyA6IHRlbSAgICAgRU1QUkVHQURPIHx8LS18eyBVRiA6IHRyYWJhbGhhX2VtICAgICBVRiB8fC0tfHsgUkVHSUFPIDogZmF6X3BhcnRlICAgICBFTVBSRUdBRE8geyAgICAgICAgIGludCBpZCBQSyAgICAgICAgIGludCBpZF9vY3VwYWNhbyBGSyAgICAgICAgIGludCBpZF9zZXhvIEZLICAgICAgICAgaW50IGlkX3VmIEZLICAgICAgICAgaW50IGFubyAgICAgICAgIGZsb2F0IHJlbXVuZXJhY2FvX21lZGlhICAgICAgICAgaW50IGRlc2xpZ2FtZW50byAgICAgICAgIGludCBpZGFkZSAgICAgfSAgICAgT0NVUEFDQU8geyAgICAgICAgIGludCBpZCBQSyAgICAgICAgIHN0cmluZyBub21lICAgICB9ICAgICBTRVhPIHsgICAgICAgICBpbnQgaWQgUEsgICAgICAgICBzdHJpbmcgbm9tZSAgICAgfSAgICAgVUYgeyAgICAgICAgIGludCBpZCBQSyAgICAgICAgIGludCBpZF9yZWdpYW8gRksgICAgICAgICBzdHJpbmcgc2lnbGFfdWYgICAgIH0gICAgIFJFR0lBTyB7ICAgICAgICAgaW50IGlkIFBLICAgICAgICAgc3RyaW5nIG5vbWUgICAgIH0g"/>
+</div>
+
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;https://mermaid.ink/img/IGVyRGlhZ3JhbSAgICAgICAgIEVNUFJFR0FETyB8fC0tfHsgT0NVUEFDQU8gOiBwb3NzdWkgICAgIEVNUFJFR0FETyB8fC0tfHsgU0VYTyA6IHRlbSAgICAgRU1QUkVHQURPIHx8LS18eyBVRiA6IHRyYWJhbGhhX2VtICAgICBVRiB8fC0tfHsgUkVHSUFPIDogZmF6X3BhcnRlICAgICBFTVBSRUdBRE8geyAgICAgICAgIGludCBpZCBQSyAgICAgICAgIGludCBpZF9vY3VwYWNhbyBGSyAgICAgICAgIGludCBpZF9zZXhvIEZLICAgICAgICAgaW50IGlkX3VmIEZLICAgICAgICAgaW50IGFubyAgICAgICAgIGZsb2F0IHJlbXVuZXJhY2FvX21lZGlhICAgICAgICAgaW50IGRlc2xpZ2FtZW50byAgICAgICAgIGludCBpZGFkZSAgICAgfSAgICAgT0NVUEFDQU8geyAgICAgICAgIGludCBpZCBQSyAgICAgICAgIHN0cmluZyBub21lICAgICB9ICAgICBTRVhPIHsgICAgICAgICBpbnQgaWQgUEsgICAgICAgICBzdHJpbmcgbm9tZSAgICAgfSAgICAgVUYgeyAgICAgICAgIGludCBpZCBQSyAgICAgICAgIGludCBpZF9yZWdpYW8gRksgICAgICAgICBzdHJpbmcgc2lnbGFfdWYgICAgIH0gICAgIFJFR0lBTyB7ICAgICAgICAgaW50IGlkIFBLICAgICAgICAgc3RyaW5nIG5vbWUgICAgIH0g&#39;</pre>
 </div>
 
 </div>
@@ -16034,10 +16047,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_5</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT * FROM VW_EMPREGADO_FULL</span>
 <span class="s2">LIMIT 5;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">cnx</span><span class="p">)</span>
+
+<span class="n">df_5</span>
 </pre></div>
 
      </div>
@@ -16217,9 +16232,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_6</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">CALL PROC_SELECIONAR_EMP_POR_ANO(2018);</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">cnx</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">df_6</span>
 </pre></div>
 
      </div>
@@ -16393,6 +16410,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Tentando alterar idade para menos que 14 anos (conforme restrição da TRIGGER)</p>
+
+</div>
+</div>
+</div>
 </div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -16401,15 +16430,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">cnx</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cnx</span> <span class="o">=</span> <span class="n">get_cnx</span><span class="p">()</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">cnx</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">((</span><span class="s2">&quot;UPDATE EMPREGADO &quot;</span>
                 <span class="s2">&quot;SET idade = 11 &quot;</span>
                 <span class="s2">&quot;WHERE id = 10&quot;</span>
                 <span class="p">))</span>
 
-<span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">df_7_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT * FROM EMPREGADO WHERE id = 10</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">cnx</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_7_1</span>
 </pre></div>
 
      </div>
@@ -16468,7 +16500,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>2019</td>
       <td>1640.49</td>
       <td>0</td>
-      <td>30</td>
+      <td>31</td>
     </tr>
   </tbody>
 </table>
@@ -16481,6 +16513,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 </div>
 
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Tentando alterar idade para mais que 14 anos. Desta vez funcionou.</p>
+
+</div>
+</div>
+</div>
 </div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -16489,15 +16533,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">cnx</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cnx</span> <span class="o">=</span> <span class="n">get_cnx</span><span class="p">()</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">cnx</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">((</span><span class="s2">&quot;UPDATE EMPREGADO &quot;</span>
                 <span class="s2">&quot;SET idade = 40 &quot;</span>
                 <span class="s2">&quot;WHERE id = 10&quot;</span>
                 <span class="p">))</span>
 
-<span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">df_7_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT * FROM EMPREGADO WHERE id = 10</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">cnx</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_7_2</span>
 </pre></div>
 
      </div>
@@ -16595,7 +16642,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -16603,112 +16650,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_8_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT ano, sexo, COUNT(*) as qnt_empregos</span>
 <span class="s2">FROM `VW_EMPREGADO_FULL`</span>
 <span class="s2">GROUP BY ano, sexo;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">cnx</span><span class="p">)</span>
+
+<span class="n">df_8_1</span>
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ano</th>
-      <th>sexo</th>
-      <th>qnt_empregos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2018</td>
-      <td>Feminino</td>
-      <td>101658</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2018</td>
-      <td>Masculino</td>
-      <td>365194</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2019</td>
-      <td>Feminino</td>
-      <td>25888</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2019</td>
-      <td>Masculino</td>
-      <td>136185</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2020</td>
-      <td>Feminino</td>
-      <td>44657</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2020</td>
-      <td>Masculino</td>
-      <td>177445</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2021</td>
-      <td>Feminino</td>
-      <td>147184</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2021</td>
-      <td>Masculino</td>
-      <td>544798</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16738,7 +16691,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_8_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT</span>
 <span class="s2">        ocupacao,</span>
 <span class="s2">        sexo,</span>
@@ -16747,6 +16700,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="s2">    GROUP BY id_ocupacao, sexo</span>
 <span class="s2">    ORDER BY ocupacao, sexo;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">cnx</span><span class="p">)</span>
+
+<span class="n">df_8_2</span>
 </pre></div>
 
      </div>
@@ -16795,205 +16750,205 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>0</th>
       <td>Administrador de Banco de Dados</td>
       <td>Feminino</td>
-      <td>3058</td>
+      <td>6116</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Administrador de Banco de Dados</td>
       <td>Masculino</td>
-      <td>12033</td>
+      <td>24066</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Administrador de Redes</td>
       <td>Feminino</td>
-      <td>1985</td>
+      <td>3970</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Administrador de Redes</td>
       <td>Masculino</td>
-      <td>16767</td>
+      <td>33534</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Administrador de Sistemas Operacionais</td>
       <td>Feminino</td>
-      <td>5190</td>
+      <td>10380</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Administrador de Sistemas Operacionais</td>
       <td>Masculino</td>
-      <td>18905</td>
+      <td>37810</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Administrador em Segurança da Informação</td>
       <td>Feminino</td>
-      <td>2929</td>
+      <td>5858</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Administrador em Segurança da Informação</td>
       <td>Masculino</td>
-      <td>11750</td>
+      <td>23500</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Analista de Desenvolvimento de Sistemas</td>
       <td>Feminino</td>
-      <td>108088</td>
+      <td>216176</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Analista de Desenvolvimento de Sistemas</td>
       <td>Masculino</td>
-      <td>445439</td>
+      <td>890878</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Analista de Redes e de Comunicacao de Dados</td>
       <td>Feminino</td>
-      <td>25878</td>
+      <td>51756</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Analista de Redes e de Comunicacao de Dados</td>
       <td>Masculino</td>
-      <td>74867</td>
+      <td>149734</td>
     </tr>
     <tr>
       <th>12</th>
       <td>Analista de Sistemas de Automacao</td>
       <td>Feminino</td>
-      <td>4290</td>
+      <td>8580</td>
     </tr>
     <tr>
       <th>13</th>
       <td>Analista de Sistemas de Automacao</td>
       <td>Masculino</td>
-      <td>19202</td>
+      <td>38404</td>
     </tr>
     <tr>
       <th>14</th>
       <td>Analista de Suporte Computacional</td>
       <td>Feminino</td>
-      <td>48269</td>
+      <td>96538</td>
     </tr>
     <tr>
       <th>15</th>
       <td>Analista de Suporte Computacional</td>
       <td>Masculino</td>
-      <td>191574</td>
+      <td>383148</td>
     </tr>
     <tr>
       <th>16</th>
       <td>Engenheiro de Aplicativos em Computacao</td>
       <td>Feminino</td>
-      <td>2072</td>
+      <td>4144</td>
     </tr>
     <tr>
       <th>17</th>
       <td>Engenheiro de Aplicativos em Computacao</td>
       <td>Masculino</td>
-      <td>13235</td>
+      <td>26470</td>
     </tr>
     <tr>
       <th>18</th>
       <td>Engenheiro de Equipamentos em Computacao</td>
       <td>Feminino</td>
-      <td>333</td>
+      <td>666</td>
     </tr>
     <tr>
       <th>19</th>
       <td>Engenheiro de Equipamentos em Computacao</td>
       <td>Masculino</td>
-      <td>2441</td>
+      <td>4882</td>
     </tr>
     <tr>
       <th>20</th>
       <td>Engenheiros de Sistemas Operacionais em Computacao</td>
       <td>Feminino</td>
-      <td>1340</td>
+      <td>2680</td>
     </tr>
     <tr>
       <th>21</th>
       <td>Engenheiros de Sistemas Operacionais em Computacao</td>
       <td>Masculino</td>
-      <td>9745</td>
+      <td>19490</td>
     </tr>
     <tr>
       <th>22</th>
       <td>Operador de Computador (Inclusive Microcomputador)</td>
       <td>Feminino</td>
-      <td>23776</td>
+      <td>47552</td>
     </tr>
     <tr>
       <th>23</th>
       <td>Operador de Computador (Inclusive Microcomputador)</td>
       <td>Masculino</td>
-      <td>59491</td>
+      <td>118982</td>
     </tr>
     <tr>
       <th>24</th>
       <td>Programador de Internet</td>
       <td>Feminino</td>
-      <td>2078</td>
+      <td>4156</td>
     </tr>
     <tr>
       <th>25</th>
       <td>Programador de Internet</td>
       <td>Masculino</td>
-      <td>11634</td>
+      <td>23268</td>
     </tr>
     <tr>
       <th>26</th>
       <td>Programador de Maquinas - Ferramenta com Comando Numerico</td>
       <td>Feminino</td>
-      <td>539</td>
+      <td>1078</td>
     </tr>
     <tr>
       <th>27</th>
       <td>Programador de Maquinas - Ferramenta com Comando Numerico</td>
       <td>Masculino</td>
-      <td>8755</td>
+      <td>17510</td>
     </tr>
     <tr>
       <th>28</th>
       <td>Programador de Multimidia</td>
       <td>Feminino</td>
-      <td>1025</td>
+      <td>2050</td>
     </tr>
     <tr>
       <th>29</th>
       <td>Programador de Multimidia</td>
       <td>Masculino</td>
-      <td>4592</td>
+      <td>9184</td>
     </tr>
     <tr>
       <th>30</th>
       <td>Programador de Sistemas de Informacao</td>
       <td>Feminino</td>
-      <td>56487</td>
+      <td>112974</td>
     </tr>
     <tr>
       <th>31</th>
       <td>Programador de Sistemas de Informacao</td>
       <td>Masculino</td>
-      <td>208124</td>
+      <td>416248</td>
     </tr>
     <tr>
       <th>32</th>
       <td>Tecnico de Apoio ao Usuario de Informatica (Helpdesk)</td>
       <td>Feminino</td>
-      <td>32050</td>
+      <td>64100</td>
     </tr>
     <tr>
       <th>33</th>
       <td>Tecnico de Apoio ao Usuario de Informatica (Helpdesk)</td>
       <td>Masculino</td>
-      <td>115068</td>
+      <td>230136</td>
     </tr>
   </tbody>
 </table>
@@ -17025,31 +16980,32 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="highlight"><pre><span></span><span class="k">WITH</span><span class="w"> </span><span class="n">remun_media</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="k">SELECT</span>
-<span class="w">            </span><span class="n">regiao</span><span class="p">,</span>
-<span class="w">            </span><span class="n">sexo</span><span class="p">,</span>
-<span class="w">            </span><span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">remuneracao_media</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">media</span><span class="p">,</span>
-<span class="w">            </span><span class="n">ROUND</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">remuneracao_media</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">minimo</span><span class="p">,</span>
-<span class="w">            </span><span class="n">ROUND</span><span class="p">(</span><span class="k">MAX</span><span class="p">(</span><span class="n">remuneracao_media</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">maximo</span><span class="p">,</span>
-<span class="w">            </span><span class="n">ROUND</span><span class="p">(</span><span class="n">STD</span><span class="p">(</span><span class="n">remuneracao_media</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">desvio_padrao</span>
-<span class="w">        </span><span class="k">FROM</span>
-<span class="w">            </span><span class="o">`</span><span class="n">VW_EMPREGADO_FULL</span><span class="o">`</span>
-<span class="w">        </span><span class="k">WHERE</span>
-<span class="w">            </span><span class="n">remuneracao_media</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
-<span class="w">            </span><span class="n">regiao</span><span class="p">,</span>
-<span class="w">            </span><span class="n">sexo</span>
-<span class="w">    </span><span class="p">)</span>
+<span class="w">      </span><span class="k">SELECT</span>
+<span class="w">          </span><span class="n">regiao</span><span class="p">,</span>
+<span class="w">          </span><span class="n">sexo</span><span class="p">,</span>
+<span class="w">          </span><span class="n">ROUND</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">remuneracao_media</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">minimo</span><span class="p">,</span>
+<span class="w">          </span><span class="n">ROUND</span><span class="p">(</span><span class="k">MAX</span><span class="p">(</span><span class="n">remuneracao_media</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">maximo</span><span class="p">,</span>
+<span class="w">          </span><span class="n">ROUND</span><span class="p">(</span><span class="n">STD</span><span class="p">(</span><span class="n">remuneracao_media</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">desvio_padrao</span><span class="p">,</span>
+<span class="w">          </span><span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">remuneracao_media</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">media</span>
+<span class="w">      </span><span class="k">FROM</span>
+<span class="w">          </span><span class="o">`</span><span class="n">VW_EMPREGADO_FULL</span><span class="o">`</span>
+<span class="w">      </span><span class="k">WHERE</span>
+<span class="w">          </span><span class="n">remuneracao_media</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">          </span><span class="n">regiao</span><span class="p">,</span>
+<span class="w">          </span><span class="n">sexo</span>
+<span class="w">  </span><span class="p">)</span>
 <span class="k">SELECT</span>
-<span class="w">    </span><span class="o">*</span><span class="p">,</span>
-<span class="w">    </span><span class="n">ROUND</span><span class="p">(</span>
-<span class="w">        </span><span class="n">media</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">media</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
-<span class="w">            </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
-<span class="w">                </span><span class="n">regiao</span><span class="p">,</span>
-<span class="w">                </span><span class="n">sexo</span>
-<span class="w">        </span><span class="p">),</span>
-<span class="w">        </span><span class="mi">2</span>
-<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">diff</span>
+<span class="w">  </span><span class="o">*</span><span class="p">,</span>
+<span class="w">  </span><span class="n">ROUND</span><span class="p">(</span>
+<span class="w">      </span><span class="n">media</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">media</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
+<span class="w">          </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">regiao</span>
+<span class="w">          </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">              </span><span class="n">regiao</span><span class="p">,</span>
+<span class="w">              </span><span class="n">sexo</span>
+<span class="w">      </span><span class="p">),</span>
+<span class="w">      </span><span class="mi">2</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">diff_media_por_regiao</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">remun_media</span>
 <span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">regiao</span><span class="p">,</span><span class="w"> </span><span class="n">sexo</span><span class="p">;</span>
 </pre></div>
@@ -17065,15 +17021,15 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_8_3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">WITH remun_media AS (</span>
 <span class="s2">      SELECT</span>
 <span class="s2">          regiao,</span>
 <span class="s2">          sexo,</span>
-<span class="s2">          ROUND(AVG(remuneracao_media), 2) as media,</span>
 <span class="s2">          ROUND(MIN(remuneracao_media), 2) as minimo,</span>
 <span class="s2">          ROUND(MAX(remuneracao_media), 2) as maximo,</span>
-<span class="s2">          ROUND(STD(remuneracao_media), 2) as desvio_padrao</span>
+<span class="s2">          ROUND(STD(remuneracao_media), 2) as desvio_padrao,</span>
+<span class="s2">          ROUND(AVG(remuneracao_media), 2) as media</span>
 <span class="s2">      FROM</span>
 <span class="s2">          `VW_EMPREGADO_FULL`</span>
 <span class="s2">      WHERE</span>
@@ -17086,15 +17042,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="s2">  *,</span>
 <span class="s2">  ROUND(</span>
 <span class="s2">      media - LAG(media, 1) OVER (</span>
+<span class="s2">          PARTITION BY regiao</span>
 <span class="s2">          ORDER BY</span>
 <span class="s2">              regiao,</span>
 <span class="s2">              sexo</span>
 <span class="s2">      ),</span>
 <span class="s2">      2</span>
-<span class="s2">  ) as diff</span>
+<span class="s2">  ) as diff_media_por_regiao</span>
 <span class="s2">FROM remun_media</span>
 <span class="s2">ORDER BY regiao, sexo;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">cnx</span><span class="p">)</span>
+
+<span class="n">df_8_3</span>
 </pre></div>
 
      </div>
@@ -17135,11 +17094,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th></th>
       <th>regiao</th>
       <th>sexo</th>
-      <th>media</th>
       <th>minimo</th>
       <th>maximo</th>
       <th>desvio_padrao</th>
-      <th>diff</th>
+      <th>media</th>
+      <th>diff_media_por_regiao</th>
     </tr>
   </thead>
   <tbody>
@@ -17147,100 +17106,100 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>0</th>
       <td>Centro-Oeste</td>
       <td>Feminino</td>
-      <td>6542.79</td>
       <td>315.69</td>
       <td>73685.48</td>
       <td>7033.05</td>
+      <td>6542.79</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Centro-Oeste</td>
       <td>Masculino</td>
-      <td>7186.17</td>
       <td>300.00</td>
       <td>85750.97</td>
       <td>6985.15</td>
+      <td>7186.17</td>
       <td>643.38</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Nordeste</td>
       <td>Feminino</td>
-      <td>3900.37</td>
       <td>313.86</td>
       <td>44387.25</td>
       <td>3957.06</td>
-      <td>-3285.80</td>
+      <td>3900.37</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Nordeste</td>
       <td>Masculino</td>
-      <td>3902.51</td>
       <td>291.29</td>
       <td>98543.80</td>
       <td>3694.91</td>
+      <td>3902.51</td>
       <td>2.14</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Norte</td>
       <td>Feminino</td>
-      <td>3060.56</td>
       <td>287.07</td>
       <td>110716.20</td>
       <td>2904.23</td>
-      <td>-841.95</td>
+      <td>3060.56</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Norte</td>
       <td>Masculino</td>
-      <td>4062.80</td>
       <td>287.53</td>
       <td>105844.80</td>
       <td>4050.40</td>
+      <td>4062.80</td>
       <td>1002.24</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Sudeste</td>
       <td>Feminino</td>
-      <td>5293.50</td>
       <td>289.87</td>
       <td>146400.00</td>
       <td>4765.07</td>
-      <td>1230.70</td>
+      <td>5293.50</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Sudeste</td>
       <td>Masculino</td>
-      <td>6094.63</td>
       <td>288.80</td>
       <td>161407.66</td>
       <td>5462.57</td>
+      <td>6094.63</td>
       <td>801.13</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Sul</td>
       <td>Feminino</td>
-      <td>4123.61</td>
       <td>302.60</td>
       <td>88432.50</td>
       <td>3672.33</td>
-      <td>-1971.02</td>
+      <td>4123.61</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Sul</td>
       <td>Masculino</td>
-      <td>4745.27</td>
       <td>288.14</td>
       <td>84126.00</td>
       <td>3856.57</td>
+      <td>4745.27</td>
       <td>621.66</td>
     </tr>
   </tbody>
@@ -17278,13 +17237,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="w">    </span><span class="o">*</span><span class="p">,</span>
 <span class="w">    </span><span class="n">ROUND</span><span class="p">(</span>
 <span class="w">        </span><span class="n">qnt_desligamento</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">qnt_desligamento</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ano</span><span class="p">,</span><span class="w"> </span><span class="n">regiao</span>
 <span class="w">            </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
 <span class="w">                </span><span class="n">ano</span><span class="p">,</span>
 <span class="w">                </span><span class="n">regiao</span><span class="p">,</span>
 <span class="w">                </span><span class="n">sexo</span>
 <span class="w">        </span><span class="p">),</span>
 <span class="w">        </span><span class="mi">2</span>
-<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">diff</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">diff_deslig_por_ano_regiao</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">qnt_desligs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">q</span>
 <span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ano</span><span class="p">,</span><span class="w"> </span><span class="n">regiao</span><span class="p">,</span><span class="w"> </span><span class="n">sexo</span><span class="p">;</span>
 </pre></div>
@@ -17300,7 +17260,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_8_4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">WITH qnt_desligs AS (</span>
 <span class="s2">        SELECT</span>
 <span class="s2">            ano,</span>
@@ -17318,16 +17278,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="s2">    *,</span>
 <span class="s2">    ROUND(</span>
 <span class="s2">        qnt_desligamento - LAG(qnt_desligamento, 1) OVER (</span>
+<span class="s2">            PARTITION BY ano, regiao</span>
 <span class="s2">            ORDER BY</span>
 <span class="s2">                ano,</span>
 <span class="s2">                regiao,</span>
 <span class="s2">                sexo</span>
 <span class="s2">        ),</span>
 <span class="s2">        2</span>
-<span class="s2">    ) as diff</span>
+<span class="s2">    ) as diff_deslig_por_ano_regiao</span>
 <span class="s2">FROM qnt_desligs as q</span>
 <span class="s2">ORDER BY ano, regiao, sexo;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">cnx</span><span class="p">)</span>
+
+<span class="n">df_8_4</span>
 </pre></div>
 
      </div>
@@ -17370,7 +17333,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>regiao</th>
       <th>sexo</th>
       <th>qnt_desligamento</th>
-      <th>diff</th>
+      <th>diff_deslig_por_ano_regiao</th>
     </tr>
   </thead>
   <tbody>
@@ -17379,7 +17342,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>2018</td>
       <td>Centro-Oeste</td>
       <td>Feminino</td>
-      <td>7691</td>
+      <td>23073</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -17387,312 +17350,312 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>2018</td>
       <td>Centro-Oeste</td>
       <td>Masculino</td>
-      <td>27957</td>
-      <td>20266.0</td>
+      <td>83871</td>
+      <td>60798.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2018</td>
       <td>Nordeste</td>
       <td>Feminino</td>
-      <td>7960</td>
-      <td>-19997.0</td>
+      <td>23880</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
       <td>2018</td>
       <td>Nordeste</td>
       <td>Masculino</td>
-      <td>35725</td>
-      <td>27765.0</td>
+      <td>107175</td>
+      <td>83295.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2018</td>
       <td>Norte</td>
       <td>Feminino</td>
-      <td>27609</td>
-      <td>-8116.0</td>
+      <td>82827</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>5</th>
       <td>2018</td>
       <td>Norte</td>
       <td>Masculino</td>
-      <td>31485</td>
-      <td>3876.0</td>
+      <td>94455</td>
+      <td>11628.0</td>
     </tr>
     <tr>
       <th>6</th>
       <td>2018</td>
       <td>Sudeste</td>
       <td>Feminino</td>
-      <td>45889</td>
-      <td>14404.0</td>
+      <td>137667</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>7</th>
       <td>2018</td>
       <td>Sudeste</td>
       <td>Masculino</td>
-      <td>210075</td>
-      <td>164186.0</td>
+      <td>630225</td>
+      <td>492558.0</td>
     </tr>
     <tr>
       <th>8</th>
       <td>2018</td>
       <td>Sul</td>
       <td>Feminino</td>
-      <td>12509</td>
-      <td>-197566.0</td>
+      <td>37527</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>9</th>
       <td>2018</td>
       <td>Sul</td>
       <td>Masculino</td>
-      <td>59952</td>
-      <td>47443.0</td>
+      <td>179856</td>
+      <td>142329.0</td>
     </tr>
     <tr>
       <th>10</th>
       <td>2019</td>
       <td>Centro-Oeste</td>
       <td>Feminino</td>
-      <td>3319</td>
-      <td>-56633.0</td>
+      <td>9957</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>11</th>
       <td>2019</td>
       <td>Centro-Oeste</td>
       <td>Masculino</td>
-      <td>17361</td>
-      <td>14042.0</td>
+      <td>52083</td>
+      <td>42126.0</td>
     </tr>
     <tr>
       <th>12</th>
       <td>2019</td>
       <td>Nordeste</td>
       <td>Feminino</td>
-      <td>1931</td>
-      <td>-15430.0</td>
+      <td>5793</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>13</th>
       <td>2019</td>
       <td>Nordeste</td>
       <td>Masculino</td>
-      <td>10631</td>
-      <td>8700.0</td>
+      <td>31893</td>
+      <td>26100.0</td>
     </tr>
     <tr>
       <th>14</th>
       <td>2019</td>
       <td>Norte</td>
       <td>Feminino</td>
-      <td>832</td>
-      <td>-9799.0</td>
+      <td>2496</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>15</th>
       <td>2019</td>
       <td>Norte</td>
       <td>Masculino</td>
-      <td>1800</td>
-      <td>968.0</td>
+      <td>5400</td>
+      <td>2904.0</td>
     </tr>
     <tr>
       <th>16</th>
       <td>2019</td>
       <td>Sudeste</td>
       <td>Feminino</td>
-      <td>15945</td>
-      <td>14145.0</td>
+      <td>47835</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>17</th>
       <td>2019</td>
       <td>Sudeste</td>
       <td>Masculino</td>
-      <td>78191</td>
-      <td>62246.0</td>
+      <td>234573</td>
+      <td>186738.0</td>
     </tr>
     <tr>
       <th>18</th>
       <td>2019</td>
       <td>Sul</td>
       <td>Feminino</td>
-      <td>3861</td>
-      <td>-74330.0</td>
+      <td>11583</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>19</th>
       <td>2019</td>
       <td>Sul</td>
       <td>Masculino</td>
-      <td>28202</td>
-      <td>24341.0</td>
+      <td>84606</td>
+      <td>73023.0</td>
     </tr>
     <tr>
       <th>20</th>
       <td>2020</td>
       <td>Centro-Oeste</td>
       <td>Feminino</td>
-      <td>3162</td>
-      <td>-25040.0</td>
+      <td>9486</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>21</th>
       <td>2020</td>
       <td>Centro-Oeste</td>
       <td>Masculino</td>
-      <td>16457</td>
-      <td>13295.0</td>
+      <td>49371</td>
+      <td>39885.0</td>
     </tr>
     <tr>
       <th>22</th>
       <td>2020</td>
       <td>Nordeste</td>
       <td>Feminino</td>
-      <td>4079</td>
-      <td>-12378.0</td>
+      <td>12237</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>23</th>
       <td>2020</td>
       <td>Nordeste</td>
       <td>Masculino</td>
-      <td>18136</td>
-      <td>14057.0</td>
+      <td>54408</td>
+      <td>42171.0</td>
     </tr>
     <tr>
       <th>24</th>
       <td>2020</td>
       <td>Norte</td>
       <td>Feminino</td>
-      <td>4109</td>
-      <td>-14027.0</td>
+      <td>12327</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>25</th>
       <td>2020</td>
       <td>Norte</td>
       <td>Masculino</td>
-      <td>4252</td>
-      <td>143.0</td>
+      <td>12756</td>
+      <td>429.0</td>
     </tr>
     <tr>
       <th>26</th>
       <td>2020</td>
       <td>Sudeste</td>
       <td>Feminino</td>
-      <td>25288</td>
-      <td>21036.0</td>
+      <td>75864</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>27</th>
       <td>2020</td>
       <td>Sudeste</td>
       <td>Masculino</td>
-      <td>107055</td>
-      <td>81767.0</td>
+      <td>321165</td>
+      <td>245301.0</td>
     </tr>
     <tr>
       <th>28</th>
       <td>2020</td>
       <td>Sul</td>
       <td>Feminino</td>
-      <td>8019</td>
-      <td>-99036.0</td>
+      <td>24057</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>29</th>
       <td>2020</td>
       <td>Sul</td>
       <td>Masculino</td>
-      <td>31545</td>
-      <td>23526.0</td>
+      <td>94635</td>
+      <td>70578.0</td>
     </tr>
     <tr>
       <th>30</th>
       <td>2021</td>
       <td>Centro-Oeste</td>
       <td>Feminino</td>
-      <td>8479</td>
-      <td>-23066.0</td>
+      <td>25437</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>31</th>
       <td>2021</td>
       <td>Centro-Oeste</td>
       <td>Masculino</td>
-      <td>40152</td>
-      <td>31673.0</td>
+      <td>120456</td>
+      <td>95019.0</td>
     </tr>
     <tr>
       <th>32</th>
       <td>2021</td>
       <td>Nordeste</td>
       <td>Feminino</td>
-      <td>11871</td>
-      <td>-28281.0</td>
+      <td>35613</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>33</th>
       <td>2021</td>
       <td>Nordeste</td>
       <td>Masculino</td>
-      <td>46354</td>
-      <td>34483.0</td>
+      <td>139062</td>
+      <td>103449.0</td>
     </tr>
     <tr>
       <th>34</th>
       <td>2021</td>
       <td>Norte</td>
       <td>Feminino</td>
-      <td>2284</td>
-      <td>-44070.0</td>
+      <td>6852</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>35</th>
       <td>2021</td>
       <td>Norte</td>
       <td>Masculino</td>
-      <td>12591</td>
-      <td>10307.0</td>
+      <td>37773</td>
+      <td>30921.0</td>
     </tr>
     <tr>
       <th>36</th>
       <td>2021</td>
       <td>Sudeste</td>
       <td>Feminino</td>
-      <td>98951</td>
-      <td>86360.0</td>
+      <td>296853</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>37</th>
       <td>2021</td>
       <td>Sudeste</td>
       <td>Masculino</td>
-      <td>348584</td>
-      <td>249633.0</td>
+      <td>1045752</td>
+      <td>748899.0</td>
     </tr>
     <tr>
       <th>38</th>
       <td>2021</td>
       <td>Sul</td>
       <td>Feminino</td>
-      <td>25599</td>
-      <td>-322985.0</td>
+      <td>76797</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>39</th>
       <td>2021</td>
       <td>Sul</td>
       <td>Masculino</td>
-      <td>97117</td>
-      <td>71518.0</td>
+      <td>291351</td>
+      <td>214554.0</td>
     </tr>
   </tbody>
 </table>
@@ -17725,6 +17688,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="w">    </span><span class="o">*</span><span class="p">,</span>
 <span class="w">    </span><span class="n">ROUND</span><span class="p">(</span>
 <span class="w">        </span><span class="n">qnt_desligamento</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">qnt_desligamento</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ano</span>
 <span class="w">            </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
 <span class="w">                </span><span class="n">ano</span><span class="p">,</span>
 <span class="w">                </span><span class="n">sexo</span>
@@ -17746,7 +17710,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_8_5</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">WITH qnt_desligs AS (</span>
 <span class="s2">        SELECT</span>
 <span class="s2">            ano,</span>
@@ -17760,6 +17724,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="s2">    *,</span>
 <span class="s2">    ROUND(</span>
 <span class="s2">        qnt_desligamento + LAG(qnt_desligamento, 1) OVER (</span>
+<span class="s2">            PARTITION BY ano</span>
 <span class="s2">            ORDER BY</span>
 <span class="s2">                ano,</span>
 <span class="s2">                sexo</span>
@@ -17769,6 +17734,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="s2">FROM qnt_desligs as q</span>
 <span class="s2">ORDER BY ano, sexo;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">cnx</span><span class="p">)</span>
+
+<span class="n">df_8_5</span>
 </pre></div>
 
      </div>
@@ -17818,57 +17785,57 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>0</th>
       <td>2018</td>
       <td>Feminino</td>
-      <td>101658</td>
+      <td>304974</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2018</td>
       <td>Masculino</td>
-      <td>365194</td>
-      <td>466852.0</td>
+      <td>1095582</td>
+      <td>1400556.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2019</td>
       <td>Feminino</td>
-      <td>25888</td>
-      <td>391082.0</td>
+      <td>77664</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
       <td>2019</td>
       <td>Masculino</td>
-      <td>136185</td>
-      <td>162073.0</td>
+      <td>408555</td>
+      <td>486219.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2020</td>
       <td>Feminino</td>
-      <td>44657</td>
-      <td>180842.0</td>
+      <td>133971</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>5</th>
       <td>2020</td>
       <td>Masculino</td>
-      <td>177445</td>
-      <td>222102.0</td>
+      <td>532335</td>
+      <td>666306.0</td>
     </tr>
     <tr>
       <th>6</th>
       <td>2021</td>
       <td>Feminino</td>
-      <td>147184</td>
-      <td>324629.0</td>
+      <td>441552</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>7</th>
       <td>2021</td>
       <td>Masculino</td>
-      <td>544798</td>
-      <td>691982.0</td>
+      <td>1634394</td>
+      <td>2075946.0</td>
     </tr>
   </tbody>
 </table>
@@ -17879,6 +17846,41 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 </div>
 
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Montar Apresentação </span>
+
+<span class="c1"># Convertendo tabelas para Markdown</span>
+
+<span class="c1"># def to_mk(df):</span>
+<span class="c1">#   print(df.to_markdown(index=False))</span>
+<span class="c1">#   print(&quot;\n&quot;)</span>
+
+<span class="c1"># to_mk(df_5)</span>
+<span class="c1"># to_mk(df_6)</span>
+<span class="c1"># to_mk(df_7_1)</span>
+<span class="c1"># to_mk(df_7_2)</span>
+<span class="c1"># to_mk(df_8_1)</span>
+<span class="c1"># to_mk(df_8_2)</span>
+<span class="c1"># to_mk(df_8_3)</span>
+<span class="c1"># to_mk(df_8_4)</span>
+<span class="c1"># to_mk(df_8_5)</span>
+
+<span class="c1"># Exibindo url das imagens</span>
+<span class="c1"># print(img_mm_1, &quot;\n&quot;, img_mm_2)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div>
