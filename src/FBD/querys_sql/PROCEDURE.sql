@@ -1,4 +1,4 @@
--- Active: 1684245138463@@127.0.0.1@3306@projfbd
+-- Active: 1683917892325@@127.0.0.1@3306@projfbd
 
 -- ============= CRIANDO PROCEDURE =========================
 
@@ -13,6 +13,3 @@ END;
 
 $$
 DELIMITER;
-
--- EXEMPLO DE USO
-CALL PROC_SELECIONAR_EMP_POR_ANO(2018);

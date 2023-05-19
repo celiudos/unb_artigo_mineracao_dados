@@ -37,12 +37,6 @@ style: |
 
 # 1. Introdução
 
-**Resultados**: No geral, ficou evidente que, no período analisado, a quantidade de homens na TI é muito maior do que a de mulheres. Constatou-se que a remuneração média das mulheres é maior que a dos homens apenas na região nordeste. Além disso, a quantidade de desligamento de homens e mulheres é maior em 2021 (691.982) e a menor é de 2019 (162.073).
-
----
-
-# 1. Introdução
-
 **Tecnologias utilizadas**:
 
 - BD: Mysql (docker)
@@ -191,15 +185,7 @@ Após filtrar os dados da tabela Relação Anual de Informações Sociais ([RAIS
         212210,Engenheiro de Equipamentos em Computacao
         ...
 
----
-
-# 4. Processo de ETL (Extract, Transform, Load)
-
-## Transformação
-
-1. Logo após, selecionamos apenas a colunas necessárias e as renomeamos
-
-1. Por fim, alteramos todos os dados com "idade" = 0 para o mínimo de 14 anos (que é o menor valor, retirando o zero)
+1.  Logo após, selecionamos apenas a colunas necessárias e as renomeamos
 
 ---
 
@@ -283,9 +269,9 @@ DELIMITER;
 ```sql
 DELIMITER $$
 
-CREATE TRIGGER IF NOT EXISTS TRIGGER_CHECK_INSERT_EMPREGADO
-BEFORE INSERT ON EMPREGADO FOR EACH ROW BEGIN
-	IF NEW.idade < 14 THEN SET NEW.idade = 14;
+CREATE TRIGGER IF NOT EXISTS TRIGGER_CHECK_UPDATE_EMPREGADO
+BEFORE UPDATE ON EMPREGADO FOR EACH ROW BEGIN
+	IF NEW.idade < 14 THEN SET NEW.idade = OLD.idade;
 	END IF;
 END;
 $$
@@ -344,7 +330,7 @@ WITH remun_media AS (
 SELECT
     *,
     ROUND(
-        desvio_padrao - LAG(desvio_padrao, 1) OVER (
+        media - LAG(media, 1) OVER (
             ORDER BY
                 regiao,
                 sexo
