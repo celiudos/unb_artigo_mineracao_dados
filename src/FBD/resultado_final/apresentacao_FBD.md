@@ -415,31 +415,32 @@ ORDER BY ocupacao, sexo;
 
 ```sql
 WITH remun_media AS (
-        SELECT
-            regiao,
-            sexo,
-            ROUND(AVG(remuneracao_media), 2) as media,
-            ROUND(MIN(remuneracao_media), 2) as minimo,
-            ROUND(MAX(remuneracao_media), 2) as maximo,
-            ROUND(STD(remuneracao_media), 2) as desvio_padrao
-        FROM
-            `VW_EMPREGADO_FULL`
-        WHERE
-            remuneracao_media > 0
-        GROUP BY
-            regiao,
-            sexo
-    )
+      SELECT
+          regiao,
+          sexo,
+          ROUND(MIN(remuneracao_media), 2) as minimo,
+          ROUND(MAX(remuneracao_media), 2) as maximo,
+          ROUND(STD(remuneracao_media), 2) as desvio_padrao,
+          ROUND(AVG(remuneracao_media), 2) as media
+      FROM
+          `VW_EMPREGADO_FULL`
+      WHERE
+          remuneracao_media > 0
+      GROUP BY
+          regiao,
+          sexo
+  )
 SELECT
-    *,
-    ROUND(
-        media - LAG(media, 1) OVER (
-            ORDER BY
-                regiao,
-                sexo
-        ),
-        2
-    ) as diff
+  *,
+  ROUND(
+      media - LAG(media, 1) OVER (
+          PARTITION BY regiao
+          ORDER BY
+              regiao,
+              sexo
+      ),
+      2
+  ) as diff_media_por_regiao
 FROM remun_media
 ORDER BY regiao, sexo;
 ```
@@ -450,18 +451,18 @@ ORDER BY regiao, sexo;
 
 <!-- _class: table-sm -->
 
-| regiao       | sexo      |   media | minimo |  maximo | desvio_padrao |     diff |
-| :----------- | :-------- | ------: | -----: | ------: | ------------: | -------: |
-| Centro-Oeste | Feminino  | 6542.79 | 315.69 | 73685.5 |       7033.05 |      nan |
-| Centro-Oeste | Masculino | 7186.17 |    300 |   85751 |       6985.15 |   643.38 |
-| Nordeste     | Feminino  | 3900.37 | 313.86 | 44387.2 |       3957.06 |  -3285.8 |
-| Nordeste     | Masculino | 3902.51 | 291.29 | 98543.8 |       3694.91 |     2.14 |
-| Norte        | Feminino  | 3060.56 | 287.07 |  110716 |       2904.23 |  -841.95 |
-| Norte        | Masculino |  4062.8 | 287.53 |  105845 |        4050.4 |  1002.24 |
-| Sudeste      | Feminino  |  5293.5 | 289.87 |  146400 |       4765.07 |   1230.7 |
-| Sudeste      | Masculino | 6094.63 |  288.8 |  161408 |       5462.57 |   801.13 |
-| Sul          | Feminino  | 4123.61 |  302.6 | 88432.5 |       3672.33 | -1971.02 |
-| Sul          | Masculino | 4745.27 | 288.14 |   84126 |       3856.57 |   621.66 |
+| regiao       | sexo      | minimo |  maximo | desvio_padrao |   media | diff_media_por_regiao |
+| :----------- | :-------- | -----: | ------: | ------------: | ------: | --------------------: |
+| Centro-Oeste | Feminino  | 315.69 | 73685.5 |       7033.05 | 6542.79 |                   nan |
+| Centro-Oeste | Masculino |    300 |   85751 |       6985.15 | 7186.17 |                643.38 |
+| Nordeste     | Feminino  | 313.86 | 44387.2 |       3957.06 | 3900.37 |                   nan |
+| Nordeste     | Masculino | 291.29 | 98543.8 |       3694.91 | 3902.51 |                  2.14 |
+| Norte        | Feminino  | 287.07 |  110716 |       2904.23 | 3060.56 |                   nan |
+| Norte        | Masculino | 287.53 |  105845 |        4050.4 |  4062.8 |               1002.24 |
+| Sudeste      | Feminino  | 289.87 |  146400 |       4765.07 |  5293.5 |                   nan |
+| Sudeste      | Masculino |  288.8 |  161408 |       5462.57 | 6094.63 |                801.13 |
+| Sul          | Feminino  |  302.6 | 88432.5 |       3672.33 | 4123.61 |                   nan |
+| Sul          | Masculino | 288.14 |   84126 |       3856.57 | 4745.27 |                621.66 |
 
 ---
 
@@ -485,13 +486,14 @@ SELECT
     *,
     ROUND(
         qnt_desligamento - LAG(qnt_desligamento, 1) OVER (
+            PARTITION BY ano, regiao
             ORDER BY
                 ano,
                 regiao,
                 sexo
         ),
         2
-    ) as diff
+    ) as diff_deslig_por_ano_regiao
 FROM qnt_desligs as q
 ORDER BY ano, regiao, sexo;
 ```
@@ -502,28 +504,17 @@ ORDER BY ano, regiao, sexo;
 
 <!-- _class: table-sm -->
 
-|  ano | regiao       | sexo      | qnt_desligamento |    diff |
-| ---: | :----------- | :-------- | ---------------: | ------: |
-| 2018 | Centro-Oeste | Feminino  |            15382 |     nan |
-| 2018 | Centro-Oeste | Masculino |            55914 |   40532 |
-| 2018 | Nordeste     | Feminino  |            15920 |  -39994 |
-| 2018 | Nordeste     | Masculino |            71450 |   55530 |
-| 2018 | Norte        | Feminino  |            55218 |  -16232 |
-| 2018 | Norte        | Masculino |            62970 |    7752 |
-| 2018 | Sudeste      | Feminino  |            91778 |   28808 |
-| 2018 | Sudeste      | Masculino |           420150 |  328372 |
-| 2018 | Sul          | Feminino  |            25018 | -395132 |
-| 2018 | Sul          | Masculino |           119904 |   94886 |
-| 2019 | Centro-Oeste | Feminino  |             6638 | -113266 |
-| 2019 | Centro-Oeste | Masculino |            34722 |   28084 |
-| 2019 | Nordeste     | Feminino  |             3862 |  -30860 |
-| 2019 | Nordeste     | Masculino |            21262 |   17400 |
-| 2019 | Norte        | Feminino  |             1664 |  -19598 |
-| 2019 | Norte        | Masculino |             3600 |    1936 |
-| 2019 | Sudeste      | Feminino  |            31890 |   28290 |
-| 2019 | Sudeste      | Masculino |           156382 |  124492 |
-| 2019 | Sul          | Feminino  |             7722 | -148660 |
-| 2019 | Sul          | Masculino |            56404 |   48682 |
+|  ano | regiao       | sexo      | qnt_desligamento | diff_deslig_por_ano_regiao |
+| ---: | :----------- | :-------- | ---------------: | -------------------------: |
+| 2018 | Centro-Oeste | Feminino  |            23073 |                        nan |
+| 2018 | Centro-Oeste | Masculino |            83871 |                      60798 |
+| 2018 | Nordeste     | Feminino  |            23880 |                        nan |
+| 2018 | Nordeste     | Masculino |           107175 |                      83295 |
+| 2018 | Norte        | Feminino  |            82827 |                        nan |
+| 2018 | Norte        | Masculino |            94455 |                      11628 |
+| 2018 | Sudeste      | Feminino  |           137667 |                        nan |
+| 2018 | Sudeste      | Masculino |           630225 |                     492558 |
+| 2018 | Sul          | Feminino  |            37527 |                        nan |
 
 ---
 
@@ -539,12 +530,17 @@ WITH qnt_desligs AS (
             `VW_EMPREGADO_FULL`
         GROUP BY ano, sexo
     )
-SELECT *, ROUND(
+SELECT
+    *,
+    ROUND(
         qnt_desligamento + LAG(qnt_desligamento, 1) OVER (
+            PARTITION BY ano
             ORDER BY
                 ano,
                 sexo
-        ), 2 ) as cum
+        ),
+        2
+    ) as cum
 FROM qnt_desligs as q
 ORDER BY ano, sexo;
 ```
@@ -557,11 +553,11 @@ ORDER BY ano, sexo;
 
 |  ano | sexo      | qnt_desligamento |     cum |
 | ---: | :-------- | ---------------: | ------: |
-| 2018 | Feminino  |           203316 |     nan |
-| 2018 | Masculino |           730388 |  933704 |
-| 2019 | Feminino  |            51776 |  782164 |
-| 2019 | Masculino |           272370 |  324146 |
-| 2020 | Feminino  |            89314 |  361684 |
-| 2020 | Masculino |           354890 |  444204 |
-| 2021 | Feminino  |           294368 |  649258 |
-| 2021 | Masculino |          1089596 | 1383964 |
+| 2018 | Feminino  |           304974 |     nan |
+| 2018 | Masculino |          1095582 | 1400556 |
+| 2019 | Feminino  |            77664 |     nan |
+| 2019 | Masculino |           408555 |  486219 |
+| 2020 | Feminino  |           133971 |     nan |
+| 2020 | Masculino |           532335 |  666306 |
+| 2021 | Feminino  |           441552 |     nan |
+| 2021 | Masculino |          1634394 | 2075946 |

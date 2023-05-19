@@ -2,7 +2,7 @@
   "editor.defaultFormatter": "James-Yu.latex-workshop",
   "editor.wordWrap": "wordWrapColumn",
   "latex-workshop.latex.outDir": "./out",
-  "editor.wordWrapColumn": 100,
+  "editor.wordWrapColumn": 80,
   "latex-workshop.docker.enabled": true,
   "latex-workshop.synctex.afterBuild.enabled": true,
   "latex-workshop.view.pdf.viewer": "tab",
