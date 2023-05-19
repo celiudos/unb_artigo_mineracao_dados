@@ -11,8 +11,12 @@ style: |
       width: 95%;
   }
 
-  section.diminuir marp-pre {
-    font-size: 40%;
+  section.table-sm table {
+    font-size: 0.5em;
+  }
+
+  section.table-md table {
+    font-size: 0.8em;
   }
 ---
 
@@ -50,7 +54,7 @@ style: |
 
 ## Modelo Conceitual
 
-![bg right](./imgs/modelo_conceitual.jpg)
+![bg right](https://mermaid.ink/img/IGVyRGlhZ3JhbSAgICAgRU1QUkVHQURPIHsgICAgICAgICBpbnQgaWQgUEsgICAgICAgICBpbnQgYW5vICJBbm8gcXVlIGZvaSBlbXByZWdhZG8iICAgICAgICAgZmxvYXQgcmVtdW5lcmFjYW9fbWVkaWEgIkV4OiAzMDAwIiAgICAgICAgIGJvb2xlYW4gZGVzbGlnYW1lbnRvICJTZSBmb2kgZGVtaXRpZG8iICAgICAgICAgaW50IGlkYWRlICJFeDogMzAiICAgICAgICAgc3RyaW5nIG9jdXBhY2FvICJFeDogQW5hbGlzdGEgZGUgUmVkZXMiICAgICAgICAgc3RyaW5nIHNleG8gIkV4OiBNYXNjdWxpbm8iICAgICB9ICAgICBMT0NBTF9UUkFCQUxITyB7ICAgICAgICAgaW50IGlkIFBLICAgICAgICAgc3RyaW5nIHNpZ2xhX3VmICJFeDogREYiICAgICAgICAgc3RyaW5nIHJlZ2lhbyAiRXg6IE5vcmRlc3RlIiAgICAgfSAgICAgRU1QUkVHQURPIHx8LS18eyBMT0NBTF9UUkFCQUxITyA6IHRyYWJhbGhhIA==)
 
 ---
 
@@ -60,7 +64,7 @@ style: |
 
 Normalizado até a 3º forma normal.
 
-![bg right](./imgs/modelo_normalizado.jpg)
+![bg right](https://mermaid.ink/img/IGVyRGlhZ3JhbSAgICAgICAgIEVNUFJFR0FETyB8fC0tfHsgT0NVUEFDQU8gOiBwb3NzdWkgICAgIEVNUFJFR0FETyB8fC0tfHsgU0VYTyA6IHRlbSAgICAgRU1QUkVHQURPIHx8LS18eyBVRiA6IHRyYWJhbGhhX2VtICAgICBVRiB8fC0tfHsgUkVHSUFPIDogZmF6X3BhcnRlICAgICBFTVBSRUdBRE8geyAgICAgICAgIGludCBpZCBQSyAgICAgICAgIGludCBpZF9vY3VwYWNhbyBGSyAgICAgICAgIGludCBpZF9zZXhvIEZLICAgICAgICAgaW50IGlkX3VmIEZLICAgICAgICAgaW50IGFubyAgICAgICAgIGZsb2F0IHJlbXVuZXJhY2FvX21lZGlhICAgICAgICAgaW50IGRlc2xpZ2FtZW50byAgICAgICAgIGludCBpZGFkZSAgICAgfSAgICAgT0NVUEFDQU8geyAgICAgICAgIGludCBpZCBQSyAgICAgICAgIHN0cmluZyBub21lICAgICB9ICAgICBTRVhPIHsgICAgICAgICBpbnQgaWQgUEsgICAgICAgICBzdHJpbmcgbm9tZSAgICAgfSAgICAgVUYgeyAgICAgICAgIGludCBpZCBQSyAgICAgICAgIGludCBpZF9yZWdpYW8gRksgICAgICAgICBzdHJpbmcgc2lnbGFfdWYgICAgIH0gICAgIFJFR0lBTyB7ICAgICAgICAgaW50IGlkIFBLICAgICAgICAgc3RyaW5nIG5vbWUgICAgIH0g)
 
 ---
 
@@ -198,6 +202,7 @@ INSERT INTO OCUPACAO (id, nome)
 VALUES (
         212405,
         'Analista de Desenvolvimento de Sistemas'
+        --- + 16 dados. Total = 17
     );
 
 INSERT INTO SEXO (id, nome) VALUES (1, 'Masculino'), (2, 'Feminino');
@@ -207,7 +212,7 @@ VALUES (3, 'Sudeste'), (4, 'Sul'), (1, 'Nordeste'), (2, 'Norte'), (0, 'Centro-Oe
 
 INSERT INTO
     UF (id, id_regiao, nome)
-VALUES (25, 3, 'SP'), (18, 3, 'RJ'),
+VALUES (25, 3, 'SP'), (18, 3, 'RJ'), --- Total = 27
 ```
 
 ---
@@ -249,6 +254,22 @@ CREATE VIEW VW_EMPREGADO_FULL AS
 
 ---
 
+# 5. Utilização de pelo menos uma View
+
+<!-- _class: table-sm -->
+
+VW_EMPREGADO_FULL
+
+|   id | id_ocupacao | id_sexo | id_uf |  ano | remuneracao_media | desligamento | idade | ocupacao                                    | sexo      | uf  | regiao       |
+| ---: | ----------: | ------: | ----: | ---: | ----------------: | -----------: | ----: | :------------------------------------------ | :-------- | :-- | :----------- |
+| 7293 |      212410 |       1 |     6 | 2019 |           30772.5 |            0 |    61 | Analista de Redes e de Comunicacao de Dados | Masculino | DF  | Centro-Oeste |
+| 7292 |      212410 |       1 |     6 | 2019 |           24142.7 |            0 |    56 | Analista de Redes e de Comunicacao de Dados | Masculino | DF  | Centro-Oeste |
+| 7291 |      212410 |       1 |     6 | 2019 |           24667.7 |            0 |    58 | Analista de Redes e de Comunicacao de Dados | Masculino | DF  | Centro-Oeste |
+| 7290 |      212410 |       1 |     6 | 2019 |           23558.3 |            0 |    54 | Analista de Redes e de Comunicacao de Dados | Masculino | DF  | Centro-Oeste |
+| 7289 |      212410 |       1 |     6 | 2019 |           24537.7 |            0 |    57 | Analista de Redes e de Comunicacao de Dados | Masculino | DF  | Centro-Oeste |
+
+---
+
 # 6. Utilização de pelo menos uma Procedure (com comandos condicionais)
 
 ```sql
@@ -261,6 +282,20 @@ END;
 $$
 DELIMITER;
 ```
+
+---
+
+# 6. Utilização de pelo menos uma Procedure (com comandos condicionais)
+
+<!-- _class: table-sm -->
+
+CALL PROC_SELECIONAR_EMP_POR_ANO(2018);
+
+|     id | id_ocupacao | id_sexo | id_uf |  ano | remuneracao_media | desligamento | idade | ocupacao                                 | sexo      | uf  | regiao       |
+| -----: | ----------: | ------: | ----: | ---: | ----------------: | -----------: | ----: | :--------------------------------------- | :-------- | :-- | :----------- |
+| 391322 |      212405 |       1 |    12 | 2018 |           10061.3 |            1 |    35 | Analista de Desenvolvimento de Sistemas  | Masculino | MT  | Centro-Oeste |
+| 391321 |      212315 |       1 |    12 | 2018 |           14284.8 |            1 |    34 | Administrador de Sistemas Operacionais   | Masculino | MT  | Centro-Oeste |
+| 391320 |      212320 |       1 |    12 | 2018 |           8000.01 |            1 |    45 | Administrador em Segurança da Informação | Masculino | MT  | Centro-Oeste |
 
 ---
 
@@ -280,6 +315,24 @@ DELIMITER;
 
 ---
 
+# 7. Utilização de pelo menos um trigger (com comandos condicionais)
+
+<!-- _class: table-md -->
+
+Tentando alterar idade para menos que 14 anos (conforme restrição da TRIGGER). Ele não altera e mantém o valor atual.
+
+|  id | id_ocupacao | id_sexo | id_uf |  ano | remuneracao_media | desligamento | idade |
+| --: | ----------: | ------: | ----: | ---: | ----------------: | -----------: | ----: |
+|  10 |      317210 |       1 |    11 | 2019 |           1640.49 |            0 |    31 |
+
+Tentando alterar idade para mais que 14 anos (40 anos). Desta vez funciona.
+
+|  id | id_ocupacao | id_sexo | id_uf |  ano | remuneracao_media | desligamento | idade |
+| --: | ----------: | ------: | ----: | ---: | ----------------: | -----------: | ----: |
+|  10 |      317210 |       1 |    11 | 2019 |           1640.49 |            0 |    40 |
+
+---
+
 # 8. No mínimo 5 Consultas SQL
 
 ---
@@ -294,6 +347,23 @@ GROUP BY ano, sexo;
 
 ---
 
+## 8.1 Quantidade de empregos de TI por ano e gênero
+
+<!-- _class: table-md -->
+
+|  ano | sexo      | qnt_empregos |
+| ---: | :-------- | -----------: |
+| 2018 | Feminino  |       203316 |
+| 2018 | Masculino |       730388 |
+| 2019 | Feminino  |        51776 |
+| 2019 | Masculino |       272370 |
+| 2020 | Feminino  |        89314 |
+| 2020 | Masculino |       354890 |
+| 2021 | Feminino  |       294368 |
+| 2021 | Masculino |      1089596 |
+
+---
+
 ## 8.2 Quantidade de cargos por gênero
 
 ```sql
@@ -305,6 +375,39 @@ FROM `VW_EMPREGADO_FULL`
 GROUP BY id_ocupacao, sexo
 ORDER BY ocupacao, sexo;
 ```
+
+---
+
+## 8.2 Quantidade de cargos por gênero
+
+<!-- _class: table-md -->
+
+| ocupacao                                           | sexo      | qnt_cargos |
+| :------------------------------------------------- | :-------- | ---------: |
+| Administrador de Banco de Dados                    | Feminino  |       6116 |
+| Administrador de Banco de Dados                    | Masculino |      24066 |
+| Administrador de Redes                             | Feminino  |       3970 |
+| Administrador de Redes                             | Masculino |      33534 |
+| Administrador de Sistemas Operacionais             | Feminino  |      10380 |
+| Administrador de Sistemas Operacionais             | Masculino |      37810 |
+| Administrador em Segurança da Informação           | Feminino  |       5858 |
+| Administrador em Segurança da Informação           | Masculino |      23500 |
+| Analista de Desenvolvimento de Sistemas            | Feminino  |     216176 |
+| Analista de Desenvolvimento de Sistemas            | Masculino |     890878 |
+| Analista de Redes e de Comunicacao de Dados        | Feminino  |      51756 |
+| Analista de Redes e de Comunicacao de Dados        | Masculino |     149734 |
+| Analista de Sistemas de Automacao                  | Feminino  |       8580 |
+| Analista de Sistemas de Automacao                  | Masculino |      38404 |
+| Analista de Suporte Computacional                  | Feminino  |      96538 |
+| Analista de Suporte Computacional                  | Masculino |     383148 |
+| Engenheiro de Aplicativos em Computacao            | Feminino  |       4144 |
+| Engenheiro de Aplicativos em Computacao            | Masculino |      26470 |
+| Engenheiro de Equipamentos em Computacao           | Feminino  |        666 |
+| Engenheiro de Equipamentos em Computacao           | Masculino |       4882 |
+| Engenheiros de Sistemas Operacionais em Computacao | Feminino  |       2680 |
+| Engenheiros de Sistemas Operacionais em Computacao | Masculino |      19490 |
+| Operador de Computador (Inclusive Microcomputador) | Feminino  |      47552 |
+| Operador de Computador (Inclusive Microcomputador) | Masculino |     118982 |
 
 ---
 
@@ -343,6 +446,25 @@ ORDER BY regiao, sexo;
 
 ---
 
+## 8.3 Remuneração média por região
+
+<!-- _class: table-sm -->
+
+| regiao       | sexo      |   media | minimo |  maximo | desvio_padrao |     diff |
+| :----------- | :-------- | ------: | -----: | ------: | ------------: | -------: |
+| Centro-Oeste | Feminino  | 6542.79 | 315.69 | 73685.5 |       7033.05 |      nan |
+| Centro-Oeste | Masculino | 7186.17 |    300 |   85751 |       6985.15 |   643.38 |
+| Nordeste     | Feminino  | 3900.37 | 313.86 | 44387.2 |       3957.06 |  -3285.8 |
+| Nordeste     | Masculino | 3902.51 | 291.29 | 98543.8 |       3694.91 |     2.14 |
+| Norte        | Feminino  | 3060.56 | 287.07 |  110716 |       2904.23 |  -841.95 |
+| Norte        | Masculino |  4062.8 | 287.53 |  105845 |        4050.4 |  1002.24 |
+| Sudeste      | Feminino  |  5293.5 | 289.87 |  146400 |       4765.07 |   1230.7 |
+| Sudeste      | Masculino | 6094.63 |  288.8 |  161408 |       5462.57 |   801.13 |
+| Sul          | Feminino  | 4123.61 |  302.6 | 88432.5 |       3672.33 | -1971.02 |
+| Sul          | Masculino | 4745.27 | 288.14 |   84126 |       3856.57 |   621.66 |
+
+---
+
 ## 8.4 Quantidade de demissões por região
 
 ```sql
@@ -376,6 +498,35 @@ ORDER BY ano, regiao, sexo;
 
 ---
 
+## 8.4 Quantidade de demissões por região
+
+<!-- _class: table-sm -->
+
+|  ano | regiao       | sexo      | qnt_desligamento |    diff |
+| ---: | :----------- | :-------- | ---------------: | ------: |
+| 2018 | Centro-Oeste | Feminino  |            15382 |     nan |
+| 2018 | Centro-Oeste | Masculino |            55914 |   40532 |
+| 2018 | Nordeste     | Feminino  |            15920 |  -39994 |
+| 2018 | Nordeste     | Masculino |            71450 |   55530 |
+| 2018 | Norte        | Feminino  |            55218 |  -16232 |
+| 2018 | Norte        | Masculino |            62970 |    7752 |
+| 2018 | Sudeste      | Feminino  |            91778 |   28808 |
+| 2018 | Sudeste      | Masculino |           420150 |  328372 |
+| 2018 | Sul          | Feminino  |            25018 | -395132 |
+| 2018 | Sul          | Masculino |           119904 |   94886 |
+| 2019 | Centro-Oeste | Feminino  |             6638 | -113266 |
+| 2019 | Centro-Oeste | Masculino |            34722 |   28084 |
+| 2019 | Nordeste     | Feminino  |             3862 |  -30860 |
+| 2019 | Nordeste     | Masculino |            21262 |   17400 |
+| 2019 | Norte        | Feminino  |             1664 |  -19598 |
+| 2019 | Norte        | Masculino |             3600 |    1936 |
+| 2019 | Sudeste      | Feminino  |            31890 |   28290 |
+| 2019 | Sudeste      | Masculino |           156382 |  124492 |
+| 2019 | Sul          | Feminino  |             7722 | -148660 |
+| 2019 | Sul          | Masculino |            56404 |   48682 |
+
+---
+
 ## 8.5 Quantidades de demissões com dados acumulados por ano
 
 ```sql
@@ -397,3 +548,20 @@ SELECT *, ROUND(
 FROM qnt_desligs as q
 ORDER BY ano, sexo;
 ```
+
+---
+
+## 8.5 Quantidades de demissões com dados acumulados por ano
+
+<!-- _class: table-md -->
+
+|  ano | sexo      | qnt_desligamento |     cum |
+| ---: | :-------- | ---------------: | ------: |
+| 2018 | Feminino  |           203316 |     nan |
+| 2018 | Masculino |           730388 |  933704 |
+| 2019 | Feminino  |            51776 |  782164 |
+| 2019 | Masculino |           272370 |  324146 |
+| 2020 | Feminino  |            89314 |  361684 |
+| 2020 | Masculino |           354890 |  444204 |
+| 2021 | Feminino  |           294368 |  649258 |
+| 2021 | Masculino |          1089596 | 1383964 |
