@@ -1,0 +1,15 @@
+-- Active: 1683917892325@@127.0.0.1@3306@projfbd
+
+-- ============= CRIANDO PROCEDURE =========================
+
+USE projfbd;
+
+DELIMITER $$
+
+CREATE PROCEDURE IF NOT EXISTS PROC_SELECIONAR_EMP_POR_ANO (IN ANO INT)
+BEGIN
+	SELECT * FROM `VW_EMPREGADO_FULL` as e WHERE ANO = e.ano;
+END;
+
+$$
+DELIMITER;

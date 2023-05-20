@@ -74,38 +74,47 @@ CNAE
 
 - Aba: subclasse 2.0, Linha 1007
 
-6201500: Desenvolvimento de Programas de Computador Sob Encomenda
-6202300: Desenvolvimento e Licenciamento de Programas de Computador Customizáveis
-6203100: Desenvolvimento e Licenciamento de Programas de Computador Não-Customizáveis
-6204000: Consultoria em Tecnologia da Informação
-6209100: Suporte Técnico, Manutenção e Outros Serviços em Tecnologia da Informação
-6311900: Tratamento de Dados, Provedores de Serviços de Aplicação e Serviços de Hospedagem na Internet
+      6201500: Desenvolvimento de Programas de Computador Sob Encomenda
+      6202300: Desenvolvimento e Licenciamento de Programas de Computador Customizáveis
+      6203100: Desenvolvimento e Licenciamento de Programas de Computador Não-Customizáveis
+      6204000: Consultoria em Tecnologia da Informação
+      6209100: Suporte Técnico, Manutenção e Outros Serviços em Tecnologia da Informação
+
+      6311900: Tratamento de Dados, Provedores de Serviços de Aplicação e Serviços de Hospedagem na Internet
 
 CBO
 
 - Aba: ocupação, Linha 162
 
-212205: Engenheiro de Aplicativos em Computacao
-212210: Engenheiro de Equipamentos em Computacao
-212215: Engenheiros de Sistemas Operacionais em Computacao
+      212205: Engenheiro de Aplicativos em Computacao
+      212210: Engenheiro de Equipamentos em Computacao
+      212215: Engenheiros de Sistemas Operacionais em Computacao
 
-212305: Administrador de Banco de Dados
-212310: Administrador de Redes
-212315: Administrador de Sistemas Operacionais
-212320: Administrador em Segurança da Informação
+      212305: Administrador de Banco de Dados
+      212310: Administrador de Redes
+      212315: Administrador de Sistemas Operacionais
+      212320: Administrador em Segurança da Informação
 
-212405: Analista de Desenvolvimento de Sistemas
-212410: Analista de Redes e de Comunicacao de Dados
-212415: Analista de Sistemas de Automacao
-212420: Analista de Suporte Computacional
+      212405: Analista de Desenvolvimento de Sistemas
+      212410: Analista de Redes e de Comunicacao de Dados
+      212415: Analista de Sistemas de Automacao
+      212420: Analista de Suporte Computacional
 
-317105: Programador de Internet
-317110: Programador de Sistemas de Informacao
-317115: Programador de Maquinas - Ferramenta com Comando Numerico
-317120: Programador de Multimidia
+      317105: Programador de Internet
+      317110: Programador de Sistemas de Informacao
+      317115: Programador de Maquinas - Ferramenta com Comando Numerico
+      317120: Programador de Multimidia
 
-317205: Operador de Computador (Inclusive Microcomputador)
-317210: Tecnico de Apoio ao Usuario de Informatica (Helpdesk)
+      317205: Operador de Computador (Inclusive Microcomputador)
+      317210: Tecnico de Apoio ao Usuario de Informatica (Helpdesk)
+
+## Simetria de salários entre Homens X Mulheres
+
+Dissertação UNB 2022_AnnaCarolinaMendonçaLemosRibeiro - Efeitos positivos e heterogêneos da tecnologia e da automação nos salários  estudos combinados em um design metodol
+
+    3.2 Variáveis e estatísticas descritivas
+
+    Para ajustar a assimetria dos salários individuais, a literatura sugere o uso de transformação logarítmica (Liu et al., 2018; Wysocki, 2010). A variável dependente, então, foi medida pelo logaritmo natural do salário do empregado, referente a dezembro de 2018. 
 
 # Dados
 
