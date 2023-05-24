@@ -9,6 +9,7 @@ logs/*
 **/output**/bronze/*
 # **/output**/silver/*
 **/output**/gold/*
+**/output**/gold/.csv
 
 artigo/out/*
 .DS_Store
