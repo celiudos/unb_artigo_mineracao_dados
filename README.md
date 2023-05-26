@@ -14,10 +14,37 @@
 
 ## Escopo do Artigo
 
-**Questão:** Qual o impacto do período da COVID-19 nos profissionais de TI?
-- **Contexto:** Profissionais de TI no Brasil
-- **Período:** Antes COVID-19 (2018-2019) e Durante COVID-19 (2020-2021)
-- **Perfis de análise:** Homens X Mulheres; Por estados do Brasil; Média de salário 
+**Questão1:** De forma geral, qual a diferença salarial entre homens e mulheres no setor de TI no Brasil?
+- **Variáveis:** Sexo, Salário, Ano, Sigla_Município, sigla_UF e CNAE
+- **Visualização:** Gráfico de barras (média salarial) e Gráfico de linhas (evolução salarial) e Mapa de calor (distribuição salarial)
+
+**Questão2:** De forma geral, qual a distribuição de homens e mulheres no setor de TI no Brasil?
+- **Variáveis:** Sexo, Ano, Sigla_Município, sigla_UF e CNAE
+- **Visualização:** Gráfico de barras (distribuição de homens e mulheres) e Gráfico de linhas (evolução de homens e mulheres) e Mapa de calor (distribuição de homens e mulheres)
+
+**Questão3:** Qual a distribuição de homens e mulheres no setor de TI no Brasil por nível de escolaridade?
+- **Variáveis:** Sexo, Ano, Sigla_Município, sigla_UF, CNAE e Escolaridade
+- **Visualização:** Gráfico de barras (distribuição de homens e mulheres) e Gráfico de linhas (evolução de homens e mulheres) e Mapa de calor (distribuição de homens e mulheres)
+
+**Questão4:** Qual a distribuição de homens e mulheres no setor de TI no Brasil por setor de trabalho (público/privado)?
+- **Variáveis:** Sexo, Ano, Sigla_Município, sigla_UF, CNAE e Setor de Trabalho
+- **Visualização:** Gráfico de barras (distribuição de homens e mulheres por setor de trabalho) e Gráfico de linhas (evolução de homens e mulheres)
+
+**Questão5:** Qual a diferença salarial de homens e mulheres no setor de TI no Brasil por setor de trabalho (público/privado)?
+- **Variáveis:** Sexo, Ano, Sigla_Município, sigla_UF, CNAE e Setor de Trabalho
+- **Visualização:** Gráfico de barras (distribuição de homens e mulheres por setor de trabalho) e Gráfico de linhas (evolução de homens e mulheres)
+
+**Questão6:** Qual a distribuição de homens e mulheres no setor de TI no Brasil por média salarial e nível de escolaridade?
+- **Variáveis:** Sexo, Ano, Sigla_Município, sigla_UF, CNAE, Escolaridade e Salário
+- **Visualização:** Tabela por ano e nível de escolaridade
+
+**Questão7:** Qual a distribuição de demissão de homens e mulheres no setor de TI no Brasil por ano?
+- **Variáveis:** Sexo, Ano, Sigla_Município, sigla_UF, CNAE e Demissão
+- **Visualização:** Gráfico de barras (distribuição de demissões de homens e mulheres por ano), Tabela por ano, e Gráfico de linhas (evolução de homens e mulheres)
+
+**Questão8:** Qual a distribuição de demissão de homens e mulheres no setor de TI por nível de escolaridade?
+- **Variáveis:** Sexo, Ano, Sigla_Município, sigla_UF, CNAE, Escolaridade e demissão
+
 
 ## Links
 
