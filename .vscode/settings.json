@@ -3,10 +3,6 @@
   "editor.wordWrap": "wordWrapColumn",
   "latex-workshop.latex.outDir": "./out",
   "editor.wordWrapColumn": 80,
-  "latex-workshop.docker.enabled": true,
-  "latex-workshop.synctex.afterBuild.enabled": true,
-  "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.docker.image.latex": "tianon/latex",
   "[sql]": {
     "editor.defaultFormatter": "cweijan.vscode-mysql-client2",
     "editor.formatOnSave": false
