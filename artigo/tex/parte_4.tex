@@ -2,60 +2,65 @@
 
 Todo o estudo proposto será realizado seguindo a metodologia Cross Industry Standard Process for Data Mining - CRISP-DM \cite{chapman2000crisp}, que é um processo padrão para mineração de dados.  Cabe destacar que não é proprietário e pretende ser independente do setor e das aplicações em que é utilizado.
 
-O CRISP-DM envolve um ciclo faseado para um projeto ou pesquisa de mineração de dados, conforme apresentado na Figura \ref{fig1}:
-
-\begin{figure}[htbp]
-	\centerline{
-		\includegraphics[width=80mm,scale=0.8]{assets/crispdm.jpg}
-	}
-	\caption{Phases of the CRISP-DM Process Model}
-	\label{fig1}
-\end{figure}
-
-As atividades que compreendem este artigo serão realizadas conforme as seguintes etapas do CRISP-DM a seguir:
+O CRISP-DM envolve um ciclo faseado para um projeto ou pesquisa de mineração de dados. As atividades que compreendem este artigo serão realizadas conforme as seguintes etapas do CRISP-DM a seguir:
 
 \begin{enumerate}
-	\item Compreensão do negócio: o contexto do problema apresentado será analisado com detalhe para uma melhor compreensão da vulnerabilidade feminina.
+	\item Compreensão do negócio: Análise detalhada do tema "diferença de gênero" e a área de TI.
 	\item Compreensão dos dados: os dados do RAIS serão coletados e examinados para identificar problemas de qualidade e verificar se eles são adequados para atender aos objetivos da pesquisa. Além disso, serão identificadas as variáveis que serão utilizadas na análise.
 	\item Preparação dos dados: os dados da RAIS serão preparados para análise, o que pode incluir a limpeza de dados, a transformação de variáveis e a seleção de subconjuntos de dados relevantes. 
-	\item Modelagem: serão aplicados modelos estatísticos ou de aprendizado de máquina para identificar padrões nos dados da RAIS, bem como relações entre variáveis.
+	\item Modelagem: serão aplicados modelos estatísticos para identificar padrões nos dados da RAIS, bem como relações entre variáveis.
 	\item Avaliação: os resultados da modelagem serão avaliados para verificar se eles atendem aos objetivos da pesquisa, isto é, se eles fornecem informações úteis.
-	\item Implantação: nesta etapa final, os resultados serão apresentados e as hipóteses confirmadas ou refutadas.     	      	      	      	      	      
+	\item Implantação: nesta etapa final, os resultados serão apresentados e as hipóteses confirmadas ou refutadas. 
 \end{enumerate}
-
-
+	      	      	      
 \subsection{Compreensão dos dados}
+	      	      	    
+A análise foi feita com foco em quatro grupos, conforme a lista abaixo:
 
-Controlou-se um vetor de fatores individuais (idade e tempo de emprego) e empresariais
-(região, tamanho e atividade econômica), que podem afetar o salário. A Tabela \ref{vars} apresenta e
-descreve as variáveis explicativas desta tese.
+\begin{itemize}
+	\item Nível educacional 	      	      	      	      	      
+	\item Setor privado e público	      	      	      	      	     
+	\item Quantidade de demissões    	      	      	      	     
+	\item Diferença entre cargos de TI, conforme a tabela CBO \ref{ocupacoes}    	      	      	     
+\end{itemize}
+	      	      	    
+Cada grupo foi analisado com base em duas variáveis:
+
+\begin{itemize}
+	\item Quantidade de pessoas do sexo masculino e feminino	      	      	      	      	      
+	\item Salário médio ao longo de um ano	    
+\end{itemize}
+	      	      	      
+A seguir, resumimos os dados analisados em uma tabela \ref{vars}:     
 
 \begin{table}[htbp]
 	\caption{Dados analisados}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline
-			\textbf{Variável}            & \textbf{Definição}     & \textbf{Exemplo}    \\ 
+			\textbf{Variável}           & \textbf{Definição}        & \textbf{Exemplo}       \\ 
 			\hline 
-			\textbf{Remuneração Média} & Com base no ano          & 5000                \\
+			\textbf{Ano}                 & Período dos dados          & 2018, 2019             \\
 			\hline
-			\textbf{Desligamento}         & Desligamento da empresa  & 0, -1               \\
-			\hline 
-			\textbf{Região}              & Localização da empresa & MS, DF              \\
-			\hline 
-			\textbf{Ocupação}           & Descrição do cargo     & Analista de suporte \\
-			\hline 
-			\textbf{Ano}                  & Período dos dados       & 2018, 2019          \\
+			\textbf{Sexo}                & Masculino ou Feminino       & 1 ou 2                 \\
 			\hline
+			\textbf{Salário}            & Com base no ano             & 5000                   \\
+			\hline 
+			\textbf{Tipo de vínculo}    & Setor Privado ou Público   & CLT, Estatutário      \\
+			\hline 
+			\textbf{Motivo Desligamento} & Demissão, falecimento, etc & Com acordo, sem acordo \\
+			\hline
+			\textbf{Ocupação}          & Descrição do cargo        & Analista de suporte    \\
+			\hline 
 		\end{tabular}
 		\label{vars}
-	\end{center}
-\end{table}
+	\end{center} 
+\end{table}      	      
 
+\subsection{Preparação dos dados}
 
-3.2 Variáveis e estatísticas descritivas
-Para ajustar a assimetria dos salários individuais, a literatura sugere o uso de
-transformação logarítmica (Liu et al., 2018; Wysocki, 2010). A variável dependente, então, foi
-medida pelo logaritmo natural do salário do empregado, referente a dezembro de 2018. 
+Foi feito um processo de Extração, Transformação e Carga (ETL) para preparar os dados para análise. O processo foi feito com a linguagem Python e a análise com a biblioteca Pandas. A fonte de dados da RAIS foi extraída a partir do site basedosdados.org \cite{basedosdados}, utilizando a API disponível através da plataforma BigQuery \cite{bigquery}. Os dados extraídos compreendem o período de 2015 a 2021, pois foram os dados disponibilizados para este estudo sem custos adicionais da plataforma BigQuery. 
 
-Sem pretender desmerecer as variadas identidades de gênero, nesta tese gênero e sexo serão usados indiscriminadamente, especialmente porque os dados empíricos da pesquisa são binários. 
+\subsection{Modelagem}
+
+A modelagem foi feita com base em gráficos de barras, de linhas, e de mapas. Os gráficos de barras e de linhas foram utilizados para mostrar a quantidade de pessoas do sexo masculino e feminino, bem como o salário médio ao longo de um ano. Os mapas foram utilizados para mostrar a quantidade de pessoas do sexo masculino e feminino por estado.

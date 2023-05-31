@@ -1,144 +1,142 @@
 \section{Resultados Obtidos}
 
-As análises foram feitas entre os anos de 2018 e 2019 (pré COVID), e 2020 e 2021 (pós COVID). Conforme o cenário mundial mudou de um ano para o outro, percebemos que as diferenças entre os gêneros também mudaram.
+Os resultados compreendem as etapas de avalização e implantação do CRISP-DM. Nesta seção, apresentamos os resultados obtidos com a análise dos dados da RAIS. De uma maneira geral, as análises compreendem homens e mulheres no setor de TI no Brasil ao longo dos anos. 
 
-\subsection{Remuneração Geral de 2018 a 2021}
+Para as análises das subseções \ref{sub:geral}, \ref{sub:educ}, \ref{sub:privpub}, criamos dois gráficos, um com a quantidade de pessoas e outro com a média salarial. As linhas de cor rosa são relacionadas a mulheres e as linhas de cor azul são relacionadas a homens. As porcentagens exibidas na linha das mulheres são relativas ao valor corresponente do homem. 
 
-A tabela abaixo \ref{remunTotal} nos mostra que a remuneração média das mulheres é menor ...
+\subsection{Análise com uma visão geral dos dados} \label{sub:geral}
 
-\begin{table}[htbp]
-	\caption{Remuneração de 2018 a 2021}
-	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|}
-			\hline
-			\textbf{Região} & \textbf{Sexo} & \textbf{Méd.} & \textbf{Dif} & \textbf{Dif\%} \\ 
-			\hline																			
-																																																																							
-			Centro-Oeste     & Feminino      & 6542.79        &              &                \\ 
-			                 & Masculino     & 7186.17        & 643.38       & 9.83\%         \\ \hline
-			Nordeste         & Feminino      & 3900.37        &              &                \\ 
-			                 & Masculino     & 3902.51        & 2.14         & 0.05\%         \\ \hline
-			Norte            & Feminino      & 3060.56        &              &                \\ 
-			                 & Masculino     & 4062.80        & 1002.24      & 32.75\%        \\ \hline
-			Sudeste          & Feminino      & 5293.50        &              &                \\ 
-			                 & Masculino     & 6094.63        & 801.13       & 15.13\%        \\ \hline
-			Sul              & Feminino      & 4123.61        &              &                \\ 
-			                 & Masculino     & 4745.27        & 621.66       & 15.08\%        \\ 
-			\hline
-		\end{tabular}
-		\label{remunTotal}
-	\end{center}
-\end{table}
+\subsubsection{Quantidade}
 
-\subsection{Remuneração de 2018 a 2021}
+Vemos que no primeiro gráfico da Figura \ref{fig_1_qnt}, a quantidade de homens é maior que a de mulheres, uma situação já esperada. É importante destacar a diferença em 2021 de -74\% para mulheres, a maior diferença entre todos os anos. Além do mais, 2021 foi um ano de pandemia, o que pode ter influenciado nesse resultado.
 
-A tabela abaixo \ref{remunTotal} nos mostra que a remuneração média das mulheres é menor ...
+\begin{figure}[htbp]
+	{
+		\includegraphics[width=85mm]{assets/1_qnt.PNG}
+	}
+	\caption{Quantidade geral}
+	\label{fig_1_qnt}
+\end{figure}
 
-\begin{table}[htbp]
-	\caption{Remuneração de 2018 a 2021}
-	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|c|}
-			\hline
-			\textbf{Ano} & \textbf{Região} & \textbf{Sexo} & \textbf{Méd.} & \textbf{Dif} & \textbf{Dif\%} \\ 
-			\hline																			
-																																																																							
-			2018         & Centro-Oeste     & Feminino      & 6979.09        &              &                \\
-			             &                  & Masculino     & 6801.06        & -178.03      & -2.55\%        \\
-			             & Nordeste         & Feminino      & 4247.12        &              &                \\
-			             &                  & Masculino     & 4044.22        & -202.9       & -4.78\%        \\
-			             & Norte            & Feminino      & 2859.67        &              &                \\
-			             &                  & Masculino     & 4024.01        & 1164.34      & 40.72\%        \\
-			             & Sudeste          & Feminino      & 5256.70        &              &                \\
-			             &                  & Masculino     & 5985.95        & 729.25       & 13.87\%        \\
-			             & Sul              & Feminino      & 4767.86        &              &                \\
-			             &                  & Masculino     & 4996.56        & 228.7        & 4.8\%          \\ \hline
-			2019         & Centro-Oeste     & Feminino      & 10576.11       &              &                \\
-			             &                  & Masculino     & 9612.65        & -963.46      & -9.11\%        \\
-			             & Nordeste         & Feminino      & 2848.94        &              &                \\
-			             &                  & Masculino     & 3677.29        & 828.35       & 29.08\%        \\
-			             & Norte            & Feminino      & 3390.81        &              &                \\
-			             &                  & Masculino     & 3260.72        & -130.09      & -3.84\%        \\
-			             & Sudeste          & Feminino      & 5271.16        &              &                \\
-			             &                  & Masculino     & 5377.40        & 106.24       & 2.02\%         \\
-			             & Sul              & Feminino      & 3905.04        &              &                \\
-			             &                  & Masculino     & 4250.18        & 345.14       & 8.84\%         \\\hline
-			2020         & Centro-Oeste     & Feminino      & 4287.08        &              &                \\
-			             &                  & Masculino     & 6337.51        & 2050.43      & 47.83\%        \\
-			             & Nordeste         & Feminino      & 3161.25        &              &                \\
-			             &                  & Masculino     & 3481.98        & 320.73       & 10.15\%        \\
-			             & Norte            & Feminino      & 3741.41        &              &                \\
-			             &                  & Masculino     & 3161.25        & -580.16      & -15.51\%       \\
-			             & Sudeste          & Feminino      & 4386.02        &              &                \\
-			             &                  & Masculino     & 5285.72        & 899.7        & 20.51\%        \\
-			             & Sul              & Feminino      & 3275.24        &              &                \\
-			             &                  & Masculino     & 3942.60        & 667.36       & 20.38\%        \\\hline
-			2021         & Centro-Oeste     & Feminino      & 5426.14        &              &                \\
-			             &                  & Masculino     & 6782.73        & 1356.59      & 25.0\%         \\
-			             & Nordeste         & Feminino      & 4077.23        &              &                \\
-			             &                  & Masculino     & 4003.20        & -74.03       & -1.82\%        \\
-			             & Norte            & Feminino      & 4177.48        &              &                \\
-			             &                  & Masculino     & 4571.86        & 394.38       & 9.44\%         \\
-			             & Sudeste          & Feminino      & 5541.26        &              &                \\
-			             &                  & Masculino     & 6552.65        & 1011.39      & 18.25\%        \\
-			             & Sul              & Feminino      & 4097.54        &              &                \\
-			             &                  & Masculino     & 4981.30        & 883.76       & 21.57\%        \\
-			\hline
-		\end{tabular}
-		\label{remunTotal}
-	\end{center}
-\end{table}
+\subsubsection{Média salarial}
 
-A tabela abaixo \ref{desligTotal} nos mostra que o desligamentos médios das mulheres é menor ...
+No segundo gráfico da Figura \ref{fig_1_sal}, vemos que a média salarial dos homens é maior que a das mulheres, porém para o período de 2018 a 2020 há um aumento na diferença entre os gêneros. Em 2021, a diferença diminuiu entre os sexos, e ainda, tanto o homem quanto a mulher tiveram um aumento na média salarial. Nossa suposição é de que, com a pandemia, o aumento de teletrabalho tenha proporcionado a valorização dos profissionais de TI.
 
-\begin{table}[htbp]
-	\caption{Desligamentos de 2018 a 2021}
-	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|c|}
-			\hline
-			\textbf{Ano} & \textbf{Região} & \textbf{Sexo} & \textbf{Méd.} & \textbf{Dif} & \textbf{Dif\%} \\ 
-			\hline																			
-			2018         & Centro-Oeste     & Feminino      & 7475           &              &                \\
-			             &                  & Masculino     & 27762          & 20287.0      & 271.4\%        \\
-			             & Nordeste         & Feminino      & 7886           &              &                \\
-			             &                  & Masculino     & 35368          & 27482.0      & 348.49\%       \\
-			             & Norte            & Feminino      & 27383          &              &                \\
-			             &                  & Masculino     & 31209          & 3826.0       & 13.97\%        \\
-			             & Sudeste          & Feminino      & 45345          &              &                \\
-			             &                  & Masculino     & 207928         & 162583.0     & 358.55\%       \\
-			             & Sul              & Feminino      & 12363          &              &                \\
-			             &                  & Masculino     & 59456          & 47093.0      & 380.92\%       \\\hline
-			2019         & Centro-Oeste     & Feminino      & 3135           &              &                \\
-			             &                  & Masculino     & 16455          & 13320.0      & 424.88\%       \\
-			             & Nordeste         & Feminino      & 1796           &              &                \\
-			             &                  & Masculino     & 9765           & 7969.0       & 443.71\%       \\
-			             & Norte            & Feminino      & 801            &              &                \\
-			             &                  & Masculino     & 1722           & 921.0        & 114.98\%       \\
-			             & Sudeste          & Feminino      & 14399          &              &                \\
-			             &                  & Masculino     & 70987          & 56588.0      & 393.0\%        \\
-			             & Sul              & Feminino      & 3470           &              &                \\
-			             &                  & Masculino     & 26534          & 23064.0      & 664.67\%       \\\hline
-			2020         & Centro-Oeste     & Feminino      & 3001           &              &                \\
-			             &                  & Masculino     & 15757          & 12756.0      & 425.06\%       \\
-			             & Nordeste         & Feminino      & 3939           &              &                \\
-			             &                  & Masculino     & 17567          & 13628.0      & 345.98\%       \\
-			             & Norte            & Feminino      & 4031           &              &                \\
-			             &                  & Masculino     & 4085           & 54.0         & 1.34\%         \\
-			             & Sudeste          & Feminino      & 24390          &              &                \\
-			             &                  & Masculino     & 103504         & 79114.0      & 324.37\%       \\
-			             & Sul              & Feminino      & 7720           &              &                \\
-			             &                  & Masculino     & 30439          & 22719.0      & 294.29\%       \\\hline
-			2021         & Centro-Oeste     & Feminino      & 8182           &              &                \\
-			             &                  & Masculino     & 39322          & 31140.0      & 380.59\%       \\
-			             & Nordeste         & Feminino      & 11678          &              &                \\
-			             &                  & Masculino     & 45432          & 33754.0      & 289.04\%       \\
-			             & Norte            & Feminino      & 2231           &              &                \\
-			             &                  & Masculino     & 12326          & 10095.0      & 452.49\%       \\
-			             & Sudeste          & Feminino      & 97366          &              &                \\
-			             &                  & Masculino     & 343299         & 245933.0     & 252.59\%       \\
-			             & Sul              & Feminino      & 25201          &              &                \\
-			             &                  & Masculino     & 95873          & 70672.0      & 280.43\%       \\
-			\hline
-		\end{tabular}
-		\label{desligTotal}
-	\end{center}
-\end{table}
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=85mm]{assets/1_sal.PNG}
+	}
+	\caption{Média salarial geral}
+	\label{fig_1_sal}
+\end{figure}
+
+
+\subsection{Por nível educacional}  \label{sub:educ}
+
+\subsubsection{Quantidade}
+
+Em uma analise educacional da Figura \ref{fig_2_qnt_educ}, percebemos nos dois gêneros que há um número maior de pessoas com ensino superior em contraste às de ensino médio completo. É interessante notar que, em 2021, a diferença relativa entre os gêneros é bem próxima para o os dois níveis escolares (na casa dos 73\%).
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=85mm]{assets/2_qnt_educ.PNG}
+	}
+	\caption{Quantidade por nível educacional}
+	\label{fig_2_qnt_educ}
+\end{figure}
+
+\subsubsection{Média salarial}
+
+Para média salarial da Figura \ref{fig_2_sal_educ}, vemos que a diferença é maior para nível médio (-23\%), enquanto que para o superior é de -11\%. Ou seja, a diferença é mais do que o dobro quando olhamos para o salário e nível médio. Com isso, podemos supor que a qualificação da mulher ajuda a reduzir a desigualdade salarial na TI.
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=85mm]{assets/2_sal_educ.PNG}
+	}
+	\caption{Média salarial por nível educacional}
+	\label{fig_2_sal_educ}
+\end{figure}
+
+\subsection{Por setor Privado e Público}  \label{sub:privpub}
+
+\subsubsection{Quantidade}
+
+Na Figura \ref{fig_3_qnt_pubpriv} abaixo, é nítida a quantidade esmagadora de profissionais da área privada em relação à pública. Na Figura  \ref{fig_3_1_qnt_pubpriv} nós ampliamos a imagem, já que fica difícil de visualizar a diferença entre os gêneros.
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=85mm]{assets/3_qnt_pubpriv.PNG}
+	}
+	\caption{Quantidade por setor}
+	\label{fig_3_qnt_pubpriv}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=85mm]{assets/3_1_qnt_pubpriv.PNG}
+	}
+	\caption{Gráfico ampliado da quantidade por setor público}
+	\label{fig_3_1_qnt_pubpriv}
+\end{figure}
+
+\subsubsection{Média salarial}
+
+Para o setor privado da Figura \ref{fig_3_qnt_pubpriv}, fica visível a diferença entre os gêneros, sendo para 2021 de -13\%, que em termos absolutos é de 796 reais. Para um padrão brasileiro, essa diferença é grande, pois representa quase 1 salário mínimo (R\$ 1.100 em 2021). Já para o setor público a diferença é bem pequena, com exceção para os anos de 2018 a 2021, algo já previamente destacado na média geral da Figura \ref{fig_1_sal}.
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=85mm]{assets/3_sal_pubpriv.PNG}
+	}
+	\caption{Média salarial por setor}
+	\label{fig_3_sal_pubpriv}
+\end{figure}
+
+\subsection{Quantidade de demissões}
+
+Esta seção analisa de forma diferente das anteriormente expostas. Há um gráfico para cada gênero. Em cada gráfico, há a quantidade de pessoas demitidas e abaixo a de pessoas não demitidas, ou seja, mantidas no emprego no respectivo ano. A porcentagem é também diferente, pois analisa a diferença em relação ao dado anterior da própria linha, e não em relação ao outro sexo.
+
+\subsubsection{Homem}
+
+Destacamos aqui na Figura \ref{fig_4_qnt_h_demit}
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=85mm]{assets/4_qnt_h_demit.PNG}
+	}
+	\caption{Demissões de homens}
+	\label{fig_4_qnt_h_demit}
+\end{figure}
+
+\subsubsection{Mulher}
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=85mm]{assets/4_qnt_m_demit.PNG}
+	}
+	\caption{Demissões de mulheres}
+	\label{fig_4_qnt_m_demit}
+\end{figure}
+
+
+\subsection{Por cargo de TI}
+
+\subsubsection{Quantidade}
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=85mm]{assets/5_qnt_cbo.PNG}
+	}
+	\caption{Quantidade por cargo}
+	\label{fig_5_qnt_cbo}
+\end{figure}
+
+\subsubsection{Média salarial}
+
+\begin{figure}[htbp]
+	\centerline{
+		\includegraphics[width=85mm]{assets/5_sal_cbo.PNG}
+	}
+	\caption{Média salarial por cargo}
+	\label{fig_5_sal_cbo}
+\end{figure}
