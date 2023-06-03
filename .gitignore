@@ -7,8 +7,9 @@ logs/*
 # Projeto
 
 **/output**/bronze/*
-# **/output**/silver/*
+**/output**/silver/*
 **/output**/gold/*
+**/output**/gold/.csv
 
 artigo/out/*
 .DS_Store
