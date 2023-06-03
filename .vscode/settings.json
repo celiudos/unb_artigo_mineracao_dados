@@ -2,6 +2,9 @@
   "editor.defaultFormatter": "James-Yu.latex-workshop",
   "editor.wordWrap": "wordWrapColumn",
   "latex-workshop.latex.outDir": "./out",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.docker.image.latex": "tianon/latex",
+  "latex-workshop.docker.enabled": true,
   "editor.wordWrapColumn": 80,
   "[sql]": {
     "editor.defaultFormatter": "cweijan.vscode-mysql-client2",
