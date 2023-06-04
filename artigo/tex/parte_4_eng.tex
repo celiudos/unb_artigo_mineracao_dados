@@ -1,0 +1,68 @@
+\section{Methodology}
+
+All the proposed study will be carried out following the Cross Industry Standard Process for Data Mining - CRISP-DM methodology \cite{chapman2000crisp}, which is a standard process for data mining. It should be noted that it is not proprietary and intends to be independent of the sector and applications in which it is used.
+
+CRISP-DM involves a phased cycle for a data mining project or research. The activities that comprise this article will be carried out according to the following CRISP-DM stages:
+
+\begin{enumerate}
+	\item Business understanding: the context of the presented problem was analyzed in detail for a better understanding of the "gender difference" theme and the importance of the Information Technology area.
+	\item Data understanding: RAIS data was collected and examined to identify quality problems and verify if they are adequate to meet research objectives. In addition, the variables that would be used in the analysis were identified.
+	\item Data preparation: RAIS data was prepared for analysis. This included data cleaning, variable transformation, and selection of relevant data subsets
+	\item Modeling: statistical techniques were applied to identify patterns in RAIS data, as well as relationships between variables.
+	\item Evaluation: the modeling results were evaluated to verify if they met research objectives, that is, if they provided useful information.
+	\item Deployment: in this final stage, the results were presented and hypotheses confirmed or refuted.
+\end{enumerate}
+	      	      	      
+\subsection{Business understanding}
+	      	      	    
+The analysis was focused on four groups, as listed below:
+
+\begin{itemize}
+	\item Educational Level	      	      	      	      
+	\item Private and Public Sector	      	     
+	\item Layoffs
+	\item Difference between IT jobs, as per CBO t{ocupacoes}    	      	      	     
+\end{itemize}
+	      	      	    
+Each group was analyzed based on two variables:
+
+\begin{itemize}
+	\item Number of male and female persons	      	      	      	      	      
+	\item Average salary over each year from 2015 to 2021.	    
+\end{itemize}
+	      	      	      
+In the following Table \ref{vars} is a summary of the analyzed data:     
+
+\begin{table}[htbp]
+	\caption{Analyzed data}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Variable}           & \textbf{Definition}      & \textbf{Example}    \\ 
+			\hline 
+			\textbf{Year}                 & Data Period        & 2018, 2019          \\
+			\hline
+			\textbf{Gender}                & Male or Female     & 1 ou 2              \\
+			\hline
+			\textbf{Salary}            & On a yearly basis           & 5000                \\
+			\hline 
+			\textbf{Education Level}  & High School and Higher Education   & Masters Degree            \\
+			\hline 
+			\textbf{Employment relation}    & Private or Public Sector  & CLT, Estatutário   \\
+			\hline 
+			\textbf{Reason for layoffs} & Resignation, etc & W/ severance agreement, W/o     \\
+			\hline
+			\textbf{Occupation}          & Descrição do cargo      & Analista de suporte \\
+			\hline 
+		\end{tabular}
+		\label{vars}
+	\end{center} 
+\end{table}      	      
+
+\subsection{Preparação dos dados}
+
+Foi feito um processo de Extração, Transformação e Carga (ETL) para preparar os dados para análise. O processo foi feito com a linguagem Python e a análise com a biblioteca Pandas. A fonte de dados da RAIS foi extraída a partir do site basedosdados.org \cite{basedosdados}, utilizando a API disponível através da plataforma BigQuery \cite{bigquery}. Os dados extraídos compreendem o período de 2015 a 2021, pois foram os dados disponibilizados para este estudo sem custos adicionais da plataforma BigQuery. 
+
+\subsection{Modelagem}
+
+A modelagem foi feita com base em gráficos de barras, de linhas e de mapas. Os gráficos de barras e de linhas foram utilizados para mostrar a quantidade de pessoas do sexo masculino e feminino, bem como a difernça do salário médio por gênero para cada ano. Os mapas foram utilizados para mostrar tanto a distribuição da quantidade de profissionais do sexo masculino e feminino, bem como a distribuição da diferença do salário médio por gênero em todo o território brasileiro. A difernça do salário médio foi calculada dividindo o salário médio do sexo feminino pelo salário médio do sexo masculino e subtraindo o resultado por 1. Essa diferença é dada em termos percentuais. A mesma fórmula foi utilizada para calcular a diferença no quantitativo por gênero para cada ano e a difernça na quantidade de demissões por gênero para cada ano.
