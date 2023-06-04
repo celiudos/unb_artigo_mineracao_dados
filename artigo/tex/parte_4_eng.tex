@@ -36,33 +36,33 @@ In the following Table \ref{vars} is a summary of the analyzed data:
 \begin{table}[htbp]
 	\caption{Analyzed data}
 	\begin{center}
-		\begin{tabular}{|c|c|c|}
+		\begin{tabular}{p{2cm}|p{3cm}|p{2cm}}
 			\hline
-			\textbf{Variable}           & \textbf{Definition}      & \textbf{Example}    \\ 
+				\textbf{Variable} & \textbf{Definition} & \textbf{Example}    \\
 			\hline 
-			\textbf{Year}                 & Data Period        & 2018, 2019          \\
+				\textbf{Year} & Data Period & 2018, 2019 \\
 			\hline
-			\textbf{Gender}                & Male or Female     & 1 ou 2              \\
+				\textbf{Gender} & Male or Female & 1 ou 2 \\
 			\hline
-			\textbf{Salary}            & On a yearly basis           & 5000                \\
+				\textbf{Salary} & On a yearly basis & 5000 \\
 			\hline 
-			\textbf{Education Level}  & High School and Higher Education   & Masters Degree            \\
+				\textbf{Education Level}  &  High School and Higher education &Masters Degree \\
 			\hline 
 			\textbf{Employment relation}    & Private or Public Sector  & CLT, Estatutário   \\
 			\hline 
-			\textbf{Reason for layoffs} & Resignation, etc & W/ severance agreement, W/o     \\
+			\textbf{Reason for layoffs} & Resignation, etc & w/ severance agreement, w/o     \\
 			\hline
-			\textbf{Occupation}          & Descrição do cargo      & Analista de suporte \\
+			\textbf{Occupation}          & Job Description      & Support Analyst \\
 			\hline 
 		\end{tabular}
 		\label{vars}
 	\end{center} 
 \end{table}      	      
 
-\subsection{Preparação dos dados}
+\subsection{Data preparation}
 
-Foi feito um processo de Extração, Transformação e Carga (ETL) para preparar os dados para análise. O processo foi feito com a linguagem Python e a análise com a biblioteca Pandas. A fonte de dados da RAIS foi extraída a partir do site basedosdados.org \cite{basedosdados}, utilizando a API disponível através da plataforma BigQuery \cite{bigquery}. Os dados extraídos compreendem o período de 2015 a 2021, pois foram os dados disponibilizados para este estudo sem custos adicionais da plataforma BigQuery. 
+An Extraction, Transformation and Loading (ETL) process was performed to prepare the data for analysis. The process was done using the Python language and the analysis with the Pandas library. The RAIS data source was extracted from the basedosdados.org website \cite{basedosdados}, using the API available through the BigQuery platform \cite{bigquery}. The extracted data covers the period from 2015 to 2021, as these were the data made available for this study at no additional cost from the BigQuery platform.
 
-\subsection{Modelagem}
+\subsection{Modeling}
 
-A modelagem foi feita com base em gráficos de barras, de linhas e de mapas. Os gráficos de barras e de linhas foram utilizados para mostrar a quantidade de pessoas do sexo masculino e feminino, bem como a difernça do salário médio por gênero para cada ano. Os mapas foram utilizados para mostrar tanto a distribuição da quantidade de profissionais do sexo masculino e feminino, bem como a distribuição da diferença do salário médio por gênero em todo o território brasileiro. A difernça do salário médio foi calculada dividindo o salário médio do sexo feminino pelo salário médio do sexo masculino e subtraindo o resultado por 1. Essa diferença é dada em termos percentuais. A mesma fórmula foi utilizada para calcular a diferença no quantitativo por gênero para cada ano e a difernça na quantidade de demissões por gênero para cada ano.
+The modeling was done based on bar, line and map charts. Bar and line charts were used to show the number of male and female people, as well as the difference in average salary by gender for each year. Maps were used to show both the distribution of the number of male and female professionals, as well as the distribution of the difference in average salary by gender throughout Brazilian territory. The difference in average salary was calculated by dividing the average salary of females by the average salary of males and subtracting the result by 1. This difference is given in percentage terms. The same formula was used to calculate the difference in quantity by gender for each year and the difference in the number of dismissals by gender for each year.
