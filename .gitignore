@@ -13,3 +13,12 @@ logs/*
 
 artigo/out/*
 .DS_Store
+artigo_FPO/out/artigo_fpo_md.aux
+artigo_FPO/out/artigo_fpo_md.bbl
+artigo_FPO/out/artigo_fpo_md.blg
+artigo_FPO/out/artigo_fpo_md.fdb_latexmk
+artigo_FPO/out/artigo_fpo_md.fls
+artigo_FPO/out/artigo_fpo_md.log
+artigo_FPO/out/artigo_fpo_md.out
+artigo_FPO/out/artigo_fpo_md.pdf
+artigo_FPO/out/artigo_fpo_md.synctex.gz
